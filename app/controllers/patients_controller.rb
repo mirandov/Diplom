@@ -19,6 +19,7 @@ class PatientsController < ApplicationController
     @medical_policy   = @patient.build_medical_policy
     @clinical_record  = @patient.build_clinical_record
     @address          = @patient.build_address
+    @address_policy   = @medical_policy.build_address
   end
 
   # GET /patients/1/edit
@@ -101,7 +102,14 @@ class PatientsController < ApplicationController
         :medical_policy_attributes => [
           :id,
           :mip_number,
-          :address_id
+          :address_id,
+          :address_attributes => [
+            :id,
+            :site_id,
+            :city_id,
+            :street_id,
+            :house_id
+          ]
         ],
         :clinical_record_attributes => [
           :id,

@@ -2,6 +2,5 @@
 .field
   = medical_policy_form.label :mip_number
   = medical_policy_form.text_field :mip_number
-.field
-  = medical_policy_form.label :address
-  = medical_policy_form.text_field :address
+= medical_policy_form.fields_for :address, @address_policy do |address_policy_form|
+  = render('patients/medical_policy_address_form', address_policy_form: address_policy_form)
