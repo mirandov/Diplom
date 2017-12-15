@@ -1,0 +1,23 @@
+%h1 Listing medical_policies
+
+%table
+  %thead
+    %tr
+      %th Mip number
+      %th Address
+      %th
+      %th
+      %th
+
+  %tbody
+    - @medical_policies.each do |medical_policy|
+      %tr
+        %td= medical_policy.mip_number
+        %td= medical_policy.address
+        %td= link_to 'Show', medical_policy
+        %td= link_to 'Edit', edit_medical_policy_path(medical_policy)
+        %td= link_to 'Destroy', medical_policy, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Medical policy', new_medical_policy_path

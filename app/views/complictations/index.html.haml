@@ -1,0 +1,27 @@
+%h1 Listing complictations
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Code
+      %th Information
+      %th Class disease
+      %th
+      %th
+      %th
+
+  %tbody
+    - @complictations.each do |complictation|
+      %tr
+        %td= complictation.name
+        %td= complictation.code
+        %td= complictation.information
+        %td= complictation.class_disease
+        %td= link_to 'Show', complictation
+        %td= link_to 'Edit', edit_complictation_path(complictation)
+        %td= link_to 'Destroy', complictation, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Complictation', new_complictation_path

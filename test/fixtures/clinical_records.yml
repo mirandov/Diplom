@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  record_number: MyString
+  prefix: MyString
+  suffix: MyString
+  attachment_date: 2017-12-15
+  last_registration_date: 2017-12-15
+  detachment_date: 2017-12-15
+  reason_for_detachment: MyText
+  site_id: 
+
+two:
+  record_number: MyString
+  prefix: MyString
+  suffix: MyString
+  attachment_date: 2017-12-15
+  last_registration_date: 2017-12-15
+  detachment_date: 2017-12-15
+  reason_for_detachment: MyText
+  site_id: 

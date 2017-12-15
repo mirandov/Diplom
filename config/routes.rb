@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  resources :description_diagnoses
+  resources :complictations
+  resources :class_diseases
+  resources :diagnoses
+  resources :positions
+  resources :departments
+  resources :doctors
+  resources :patients
+  resources :clinical_records
+  resources :medical_policies
+  resources :passports
+  resources :place_works
+  resources :addresses
+  resources :sites
+  resources :houses
+  resources :streets
+  resources :cities
   resources :people
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

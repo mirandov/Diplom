@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Mip number:
+  = @medical_policy.mip_number
+%p
+  %b Address:
+  = @medical_policy.address
+
+= link_to 'Edit', edit_medical_policy_path(@medical_policy)
+\|
+= link_to 'Back', medical_policies_path

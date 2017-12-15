@@ -1,0 +1,27 @@
+%h1 Listing passports
+
+%table
+  %thead
+    %tr
+      %th Serial and number
+      %th Issue date
+      %th Issued by
+      %th Passport holder
+      %th
+      %th
+      %th
+
+  %tbody
+    - @passports.each do |passport|
+      %tr
+        %td= passport.serial_and_number
+        %td= passport.issue_date
+        %td= passport.issued_by
+        %td= passport.passport_holder
+        %td= link_to 'Show', passport
+        %td= link_to 'Edit', edit_passport_path(passport)
+        %td= link_to 'Destroy', passport, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Passport', new_passport_path

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Job name:
+  = @place_work.job_name
+%p
+  %b Short name:
+  = @place_work.short_name
+%p
+  %b Information:
+  = @place_work.information
+
+= link_to 'Edit', edit_place_work_path(@place_work)
+\|
+= link_to 'Back', place_works_path

@@ -1,0 +1,25 @@
+= form_for @doctor do |f|
+  - if @doctor.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@doctor.errors.count, "error")} prohibited this doctor from being saved:"
+      %ul
+        - @doctor.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :surname
+    = f.text_field :surname
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :patronymic
+    = f.text_field :patronymic
+  .field
+    = f.label :personnel_number
+    = f.text_field :personnel_number
+  .field
+    = f.label :information
+    = f.text_area :information
+  .actions
+    = f.submit 'Save'

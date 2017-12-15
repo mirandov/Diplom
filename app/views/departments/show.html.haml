@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @department.title
+%p
+  %b Short title:
+  = @department.short_title
+%p
+  %b Information:
+  = @department.information
+
+= link_to 'Edit', edit_department_path(@department)
+\|
+= link_to 'Back', departments_path

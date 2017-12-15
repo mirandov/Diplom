@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Position name:
+  = @position.position_name
+%p
+  %b Status:
+  = @position.status
+%p
+  %b Doctor:
+  = @position.doctor
+%p
+  %b Department:
+  = @position.department
+
+= link_to 'Edit', edit_position_path(@position)
+\|
+= link_to 'Back', positions_path

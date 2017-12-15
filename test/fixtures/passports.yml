@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  serial_and_number: MyString
+  issue_date: 2017-12-15
+  issued_by: MyString
+  passport_holder: MyString
+
+two:
+  serial_and_number: MyString
+  issue_date: 2017-12-15
+  issued_by: MyString
+  passport_holder: MyString

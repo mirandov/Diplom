@@ -1,0 +1,35 @@
+%h1 Listing clinical_records
+
+%table
+  %thead
+    %tr
+      %th Record number
+      %th Prefix
+      %th Suffix
+      %th Attachment date
+      %th Last registration date
+      %th Detachment date
+      %th Reason for detachment
+      %th Site
+      %th
+      %th
+      %th
+
+  %tbody
+    - @clinical_records.each do |clinical_record|
+      %tr
+        %td= clinical_record.record_number
+        %td= clinical_record.prefix
+        %td= clinical_record.suffix
+        %td= clinical_record.attachment_date
+        %td= clinical_record.last_registration_date
+        %td= clinical_record.detachment_date
+        %td= clinical_record.reason_for_detachment
+        %td= clinical_record.site
+        %td= link_to 'Show', clinical_record
+        %td= link_to 'Edit', edit_clinical_record_path(clinical_record)
+        %td= link_to 'Destroy', clinical_record, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Clinical record', new_clinical_record_path

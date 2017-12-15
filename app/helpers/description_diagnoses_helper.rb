@@ -1,0 +1,2 @@
+module DescriptionDiagnosesHelper
+end

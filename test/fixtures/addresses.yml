@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_id: 
+  city_id: 
+  street_id: 
+  house_id: 
+
+two:
+  site_id: 
+  city_id: 
+  street_id: 
+  house_id: 

@@ -1,0 +1,25 @@
+%h1 Listing description_diagnoses
+
+%table
+  %thead
+    %tr
+      %th Comment
+      %th Diagnosis
+      %th Complictation
+      %th
+      %th
+      %th
+
+  %tbody
+    - @description_diagnoses.each do |description_diagnosis|
+      %tr
+        %td= description_diagnosis.comment
+        %td= description_diagnosis.diagnosis
+        %td= description_diagnosis.complictation
+        %td= link_to 'Show', description_diagnosis
+        %td= link_to 'Edit', edit_description_diagnosis_path(description_diagnosis)
+        %td= link_to 'Destroy', description_diagnosis, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Description diagnosis', new_description_diagnosis_path

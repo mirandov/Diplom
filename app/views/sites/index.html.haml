@@ -1,0 +1,27 @@
+%h1 Listing sites
+
+%table
+  %thead
+    %tr
+      %th Site name
+      %th Short name
+      %th Region
+      %th Information
+      %th
+      %th
+      %th
+
+  %tbody
+    - @sites.each do |site|
+      %tr
+        %td= site.site_name
+        %td= site.short_name
+        %td= site.region
+        %td= site.information
+        %td= link_to 'Show', site
+        %td= link_to 'Edit', edit_site_path(site)
+        %td= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Site', new_site_path

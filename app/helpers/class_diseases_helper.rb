@@ -1,0 +1,2 @@
+module ClassDiseasesHelper
+end

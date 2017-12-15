@@ -1,0 +1,25 @@
+%h1 Listing class_diseases
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Code
+      %th Information
+      %th
+      %th
+      %th
+
+  %tbody
+    - @class_diseases.each do |class_disease|
+      %tr
+        %td= class_disease.name
+        %td= class_disease.code
+        %td= class_disease.information
+        %td= link_to 'Show', class_disease
+        %td= link_to 'Edit', edit_class_disease_path(class_disease)
+        %td= link_to 'Destroy', class_disease, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Class disease', new_class_disease_path

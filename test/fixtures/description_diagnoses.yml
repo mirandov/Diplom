@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyText
+  diagnosis_id: 
+  complictation_id: 
+
+two:
+  comment: MyText
+  diagnosis_id: 
+  complictation_id: 

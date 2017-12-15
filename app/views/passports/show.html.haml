@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Serial and number:
+  = @passport.serial_and_number
+%p
+  %b Issue date:
+  = @passport.issue_date
+%p
+  %b Issued by:
+  = @passport.issued_by
+%p
+  %b Passport holder:
+  = @passport.passport_holder
+
+= link_to 'Edit', edit_passport_path(@passport)
+\|
+= link_to 'Back', passports_path

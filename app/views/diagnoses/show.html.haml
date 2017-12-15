@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Resolution date:
+  = @diagnosis.resolution_date
+%p
+  %b Patient:
+  = @diagnosis.patient
+%p
+  %b Position:
+  = @diagnosis.position
+
+= link_to 'Edit', edit_diagnosis_path(@diagnosis)
+\|
+= link_to 'Back', diagnoses_path

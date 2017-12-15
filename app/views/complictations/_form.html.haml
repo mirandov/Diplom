@@ -1,0 +1,22 @@
+= form_for @complictation do |f|
+  - if @complictation.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@complictation.errors.count, "error")} prohibited this complictation from being saved:"
+      %ul
+        - @complictation.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :code
+    = f.text_field :code
+  .field
+    = f.label :information
+    = f.text_area :information
+  .field
+    = f.label :class_disease
+    = f.text_field :class_disease
+  .actions
+    = f.submit 'Save'

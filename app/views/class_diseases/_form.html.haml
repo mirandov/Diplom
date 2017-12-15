@@ -1,0 +1,19 @@
+= form_for @class_disease do |f|
+  - if @class_disease.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@class_disease.errors.count, "error")} prohibited this class_disease from being saved:"
+      %ul
+        - @class_disease.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :code
+    = f.text_field :code
+  .field
+    = f.label :information
+    = f.text_area :information
+  .actions
+    = f.submit 'Save'

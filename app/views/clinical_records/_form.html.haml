@@ -1,0 +1,34 @@
+= form_for @clinical_record do |f|
+  - if @clinical_record.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@clinical_record.errors.count, "error")} prohibited this clinical_record from being saved:"
+      %ul
+        - @clinical_record.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :record_number
+    = f.text_field :record_number
+  .field
+    = f.label :prefix
+    = f.text_field :prefix
+  .field
+    = f.label :suffix
+    = f.text_field :suffix
+  .field
+    = f.label :attachment_date
+    = f.date_select :attachment_date
+  .field
+    = f.label :last_registration_date
+    = f.date_select :last_registration_date
+  .field
+    = f.label :detachment_date
+    = f.date_select :detachment_date
+  .field
+    = f.label :reason_for_detachment
+    = f.text_area :reason_for_detachment
+  .field
+    = f.label :site
+    = f.text_field :site
+  .actions
+    = f.submit 'Save'

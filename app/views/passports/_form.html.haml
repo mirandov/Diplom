@@ -1,0 +1,22 @@
+= form_for @passport do |f|
+  - if @passport.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@passport.errors.count, "error")} prohibited this passport from being saved:"
+      %ul
+        - @passport.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :serial_and_number
+    = f.text_field :serial_and_number
+  .field
+    = f.label :issue_date
+    = f.date_select :issue_date
+  .field
+    = f.label :issued_by
+    = f.text_field :issued_by
+  .field
+    = f.label :passport_holder
+    = f.text_field :passport_holder
+  .actions
+    = f.submit 'Save'

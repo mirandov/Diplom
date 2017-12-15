@@ -1,0 +1,30 @@
+%p#notice= notice
+
+%p
+  %b Record number:
+  = @clinical_record.record_number
+%p
+  %b Prefix:
+  = @clinical_record.prefix
+%p
+  %b Suffix:
+  = @clinical_record.suffix
+%p
+  %b Attachment date:
+  = @clinical_record.attachment_date
+%p
+  %b Last registration date:
+  = @clinical_record.last_registration_date
+%p
+  %b Detachment date:
+  = @clinical_record.detachment_date
+%p
+  %b Reason for detachment:
+  = @clinical_record.reason_for_detachment
+%p
+  %b Site:
+  = @clinical_record.site
+
+= link_to 'Edit', edit_clinical_record_path(@clinical_record)
+\|
+= link_to 'Back', clinical_records_path

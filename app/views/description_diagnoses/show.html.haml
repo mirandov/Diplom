@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Comment:
+  = @description_diagnosis.comment
+%p
+  %b Diagnosis:
+  = @description_diagnosis.diagnosis
+%p
+  %b Complictation:
+  = @description_diagnosis.complictation
+
+= link_to 'Edit', edit_description_diagnosis_path(@description_diagnosis)
+\|
+= link_to 'Back', description_diagnoses_path

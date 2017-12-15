@@ -1,0 +1,25 @@
+%h1 Listing place_works
+
+%table
+  %thead
+    %tr
+      %th Job name
+      %th Short name
+      %th Information
+      %th
+      %th
+      %th
+
+  %tbody
+    - @place_works.each do |place_work|
+      %tr
+        %td= place_work.job_name
+        %td= place_work.short_name
+        %td= place_work.information
+        %td= link_to 'Show', place_work
+        %td= link_to 'Edit', edit_place_work_path(place_work)
+        %td= link_to 'Destroy', place_work, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Place work', new_place_work_path

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @complictation.name
+%p
+  %b Code:
+  = @complictation.code
+%p
+  %b Information:
+  = @complictation.information
+%p
+  %b Class disease:
+  = @complictation.class_disease
+
+= link_to 'Edit', edit_complictation_path(@complictation)
+\|
+= link_to 'Back', complictations_path

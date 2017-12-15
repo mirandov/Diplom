@@ -1,0 +1,60 @@
+%p#notice= notice
+
+%p
+  %b Surname:
+  = @patient.surname
+%p
+  %b Name:
+  = @patient.name
+%p
+  %b Patronymic:
+  = @patient.patronymic
+%p
+  %b Birthday:
+  = @patient.birthday
+%p
+  %b Sex:
+  = @patient.sex
+%p
+  %b Full name parent:
+  = @patient.full_name_parent
+%p
+  %b Mobile phone number:
+  = @patient.mobile_phone_number
+%p
+  %b Work phone number:
+  = @patient.work_phone_number
+%p
+  %b Rank:
+  = @patient.rank
+%p
+  %b Disability:
+  = @patient.disability
+%p
+  %b Certificate of deceased parent:
+  = @patient.certificate_of_deceased_parent
+%p
+  %b Certificate of nuclear power plant:
+  = @patient.certificate_of_nuclear_power_plant
+%p
+  %b Inila:
+  = @patient.inila
+%p
+  %b Place work:
+  = @patient.place_work
+%p
+  %b Address:
+  = @patient.address
+%p
+  %b Clinical record:
+  = @patient.clinical_record
+%p
+  %b Medical policy:
+  = @patient.medical_policy
+%p
+  %b Passport:
+  = @patient.passport
+
+= link_to 'Edit', edit_patient_path(@patient)
+\|
+= link_to 'Back', patients_path
