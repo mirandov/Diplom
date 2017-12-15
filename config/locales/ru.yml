@@ -28,3 +28,4 @@ ru:
         address_id:                         Адрес
         clinical_record_id:                 Медецинская карта
         medical_policy_id:                  Медецинский полис
+        passport_id:                        Паспорт

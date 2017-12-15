@@ -48,7 +48,7 @@
   .field
     = f.label :place_work_id
     = f.select :place_work_id , place_work_for_select, include_blank: 'Выберите место службы'
-    
+
   = f.fields_for :address, @address do |address_form|
     = render('patients/patient_address_form', address_form: address_form)
 
@@ -61,8 +61,5 @@
   = f.fields_for :clinical_record, @clinical_record do |clinical_record_form|
     = render('patients/patient_clinical_record_form', clinical_record_form: clinical_record_form)
 
-  = f.hidden_field (:clinical_record_id)
-  = f.hidden_field (:medical_policy_id)
-  = f.hidden_field (:passport_id)
   .actions
     = f.submit 'Save'

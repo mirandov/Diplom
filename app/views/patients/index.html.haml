@@ -20,8 +20,8 @@
         %td= patient.name
         %td= patient.patronymic
         %td= patient.birthday
-        %td= patient.medical_policy
-        %td= patient.clinical_record
+        %td= full_mip_number(patient.medical_policy)
+        %td= full_record_number(patient.clinical_record)
         %td= link_to 'Show', patient
         %td= link_to 'Edit', edit_patient_path(patient)
         %td= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }

@@ -1,59 +1,58 @@
 %p#notice= notice
-
 %p
-  %b Surname:
+  %b= Patient.human_attribute_name(:surname)
   = @patient.surname
 %p
-  %b Name:
+  %b= Patient.human_attribute_name(:name)
   = @patient.name
 %p
-  %b Patronymic:
+  %b= Patient.human_attribute_name(:patronymic)
   = @patient.patronymic
 %p
-  %b Birthday:
+  %b= Patient.human_attribute_name(:birthday)
   = @patient.birthday
 %p
-  %b Sex:
+  %b= Patient.human_attribute_name(:sex)
   = @patient.sex
 %p
-  %b Full name parent:
+  %b= Patient.human_attribute_name(:full_name_parent)
   = @patient.full_name_parent
 %p
-  %b Mobile phone number:
+  %b= Patient.human_attribute_name(:mobile_phone_number)
   = @patient.mobile_phone_number
 %p
-  %b Work phone number:
+  %b= Patient.human_attribute_name(:work_phone_number)
   = @patient.work_phone_number
 %p
-  %b Rank:
+  %b= Patient.human_attribute_name(:rank)
   = @patient.rank
 %p
-  %b Disability:
+  %b= Patient.human_attribute_name(:disability)
   = @patient.disability
 %p
-  %b Certificate of deceased parent:
+  %b= Patient.human_attribute_name(:certificate_of_deceased_parent)
   = @patient.certificate_of_deceased_parent
 %p
-  %b Certificate of nuclear power plant:
+  %b= Patient.human_attribute_name(:certificate_of_nuclear_power_plant)
   = @patient.certificate_of_nuclear_power_plant
 %p
-  %b Inila:
+  %b= Patient.human_attribute_name(:inila)
   = @patient.inila
 %p
-  %b Place work:
-  = @patient.place_work
+  %b= Patient.human_attribute_name(:place_work_id)
+  = @patient.place_work.nil? ? "Отсутствует" : @patient.place_work.job_name
 %p
-  %b Address:
-  = @patient.address
+  %b= Patient.human_attribute_name(:address_id)
+  = full_address(@patient.address)
 %p
-  %b Clinical record:
-  = @patient.clinical_record
+  %b= Patient.human_attribute_name(:clinical_record_id)
+  = full_record_number(@patient.clinical_record)
 %p
-  %b Medical policy:
-  = @patient.medical_policy
+  %b= Patient.human_attribute_name(:medical_policy_id)
+  = full_mip_number(@patient.medical_policy)
 %p
-  %b Passport:
-  = @patient.passport
+  %b= Patient.human_attribute_name(:passport_id)
+  = @patient.passport.serial_and_number
 
 = link_to 'Edit', edit_patient_path(@patient)
 \|
