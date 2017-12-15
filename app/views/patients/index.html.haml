@@ -3,24 +3,12 @@
 %table
   %thead
     %tr
-      %th Surname
-      %th Name
-      %th Patronymic
-      %th Birthday
-      %th Sex
-      %th Full name parent
-      %th Mobile phone number
-      %th Work phone number
-      %th Rank
-      %th Disability
-      %th Certificate of deceased parent
-      %th Certificate of nuclear power plant
-      %th Inila
-      %th Place work
-      %th Address
-      %th Clinical record
-      %th Medical policy
-      %th Passport
+      %th= Patient.human_attribute_name(:surname)
+      %th= Patient.human_attribute_name(:name)
+      %th= Patient.human_attribute_name(:patronymic)
+      %th= Patient.human_attribute_name(:birthday)
+      %th= Patient.human_attribute_name(:medical_policy_id)
+      %th= Patient.human_attribute_name(:clinical_record_id)
       %th
       %th
       %th
@@ -32,20 +20,8 @@
         %td= patient.name
         %td= patient.patronymic
         %td= patient.birthday
-        %td= patient.sex
-        %td= patient.full_name_parent
-        %td= patient.mobile_phone_number
-        %td= patient.work_phone_number
-        %td= patient.rank
-        %td= patient.disability
-        %td= patient.certificate_of_deceased_parent
-        %td= patient.certificate_of_nuclear_power_plant
-        %td= patient.inila
-        %td= patient.place_work
-        %td= patient.address
-        %td= patient.clinical_record
         %td= patient.medical_policy
-        %td= patient.passport
+        %td= patient.clinical_record
         %td= link_to 'Show', patient
         %td= link_to 'Edit', edit_patient_path(patient)
         %td= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }

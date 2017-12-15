@@ -14,10 +14,11 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
-    @patient        = Patient.new
-    @passport       = @patient.build_passport
-    @medical_policy = @patient.build_medical_policy
-    @clinical_record = @patient.build_clinical_record
+    @patient          = Patient.new
+    @passport         = @patient.build_passport
+    @medical_policy   = @patient.build_medical_policy
+    @clinical_record  = @patient.build_clinical_record
+    @address          = @patient.build_address
   end
 
   # GET /patients/1/edit
@@ -81,7 +82,8 @@ class PatientsController < ApplicationController
         :full_name_parent,
         :mobile_phone_number,
         :work_phone_number,
-        :rank, :disability,
+        :rank,
+        :disability,
         :certificate_of_deceased_parent,
         :certificate_of_nuclear_power_plant,
         :inila,
@@ -97,10 +99,12 @@ class PatientsController < ApplicationController
           :passport_holder
         ],
         :medical_policy_attributes => [
+          :id,
           :mip_number,
           :address_id
         ],
         :clinical_record_attributes => [
+          :id,
           :record_number,
           :prefix,
           :suffix,
@@ -109,6 +113,13 @@ class PatientsController < ApplicationController
           :detachment_date,
           :reason_for_detachment,
           :site_id
+        ],
+        :address_attributes => [
+          :id,
+          :site_id,
+          :city_id,
+          :street_id,
+          :house_id
         ]
       )
     end

@@ -5,7 +5,7 @@
       %ul
         - @patient.errors.full_messages.each do |message|
           %li= message
-
+          
   .field
     = f.label :surname
     = f.text_field :surname
@@ -46,22 +46,22 @@
     = f.label :inila
     = f.text_field :inila
   .field
-    = f.label :place_work
-    = f.text_field :place_work
-  .field
-    = f.label :address
-    = f.text_field :address
+    = f.label :place_work_id
+    = f.text_field :place_work_id
+  = f.fields_for :address, @address do |address_form|
+    = render('patients/patient_address_form', address_form: address_form)
+
+  = f.fields_for :passport, @passport do |passport_form|
+    = render('patients/patient_passport_form', passport_form: passport_form)
+
+  = f.fields_for :medical_policy, @medical_policy do |medical_policy_form|
+    = render('patients/patient_medical_policy_form', medical_policy_form: medical_policy_form)
+
+  = f.fields_for :clinical_record, @clinical_record do |clinical_record_form|
+    = render('patients/patient_clinical_record_form', clinical_record_form: clinical_record_form)
 
   = f.hidden_field (:clinical_record_id)
   = f.hidden_field (:medical_policy_id)
   = f.hidden_field (:passport_id)
-
-  = f.fields_for :passport, @passport do |passport_form|
-    = render('patients/patient_passport_form', passport_form: passport_form)
-  = f.fields_for :medical_policy, @medical_policy do |medical_policy_form|
-    = render('patients/patient_medical_policy_form', medical_policy_form: medical_policy_form)
-  = f.fields_for :clinical_record, @clinical_record do |clinical_record_form|
-    = render('patients/patient_clinical_record_form', clinical_record_form: clinical_record_form)
-
   .actions
     = f.submit 'Save'

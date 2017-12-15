@@ -1,0 +1,30 @@
+ru:
+  app:
+    patients:
+      index: Список пациентов
+      edit:  Редактирование пациентов
+      new:   Новый пациент
+  forms:
+    form:
+  activerecord:
+    models:
+      patient: Пациент
+    attributes:
+      patient:
+        surname:                            Фамилия
+        name:                               Имя
+        patronymic:                         Отчество
+        birthday:                           День рождения
+        sex:                                Пол
+        full_name_parent:                   Ф.И.О родителя
+        mobile_phone_number:                Мобильный телефон родителя
+        work_phone_number:                  Рабочий телефон родителя
+        rank:                               Звание
+        disability:                         Инвалидность
+        certificate_of_deceased_parent:     Дети умерший при исполнении сотрудников
+        certificate_of_nuclear_power_plant: Дети ветеранов АЭС
+        inila:                              СНИЛС
+        place_work_id:                      Место службы
+        address_id:                         Адрес
+        clinical_record_id:                 Медецинская карта
+        medical_policy_id:                  Медецинский полис

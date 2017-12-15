@@ -7,7 +7,8 @@ class Patient < ActiveRecord::Base
 
   has_many :diagnoses
 
+  accepts_nested_attributes_for :address
   accepts_nested_attributes_for :passport
   accepts_nested_attributes_for :medical_policy
-  accepts_nested_attributes_for :clinical_record 
+  accepts_nested_attributes_for :clinical_record
 end
