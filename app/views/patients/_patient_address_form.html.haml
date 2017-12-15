@@ -1,13 +1,13 @@
 %h3= "Адрес проживания"
 .field
   = address_form.label :site
-  = address_form.text_field :site_id
+  = address_form.select :site_id, site_for_select, include_blank: 'Выберите участок'
 .field
   = address_form.label :city
-  = address_form.text_field :city_id
+  = address_form.select :city_id, city_for_select, include_blank: 'Выберите город'
 .field
   = address_form.label :street
-  = address_form.text_field :street_id
+  = address_form.select :street_id, street_for_select, include_blank: 'Выберите улицу'
 .field
   = address_form.label :house
-  = address_form.text_field :house_id
+  = address_form.select :house_id, house_for_select, include_blank: 'Выберите дом'

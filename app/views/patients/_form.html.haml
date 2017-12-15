@@ -5,7 +5,7 @@
       %ul
         - @patient.errors.full_messages.each do |message|
           %li= message
-          
+
   .field
     = f.label :surname
     = f.text_field :surname
@@ -47,7 +47,8 @@
     = f.text_field :inila
   .field
     = f.label :place_work_id
-    = f.text_field :place_work_id
+    = f.select :place_work_id , place_work_for_select, include_blank: 'Выберите место службы'
+    
   = f.fields_for :address, @address do |address_form|
     = render('patients/patient_address_form', address_form: address_form)
 
