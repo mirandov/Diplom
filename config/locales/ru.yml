@@ -26,6 +26,6 @@ ru:
         inila:                              СНИЛС
         place_work_id:                      Место службы
         address_id:                         Адрес
-        clinical_record_id:                 Медецинская карта
-        medical_policy_id:                  Медецинский полис
+        clinical_record_id:                 Медицинская карта
+        medical_policy_id:                  Медицинский полис
         passport_id:                        Паспорт
