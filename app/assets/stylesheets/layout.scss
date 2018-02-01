@@ -1,0 +1,131 @@
+// Place here all the styles related to the application as a whole.
+// They will automatically be included in application.css.scss.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar-logout {
+  img {
+    padding: 2px;
+  }
+}
+.input-group.search {
+  width: 100%;
+  * {
+    cursor: pointer;
+    background-color: transparent;
+    border-color: transparent;
+    border-radius: 0;
+  }
+  .search-icon {
+    height: $search-group-height;
+    padding: $search-group-padding 10px;
+    pointer-events: none;
+    position: absolute;
+    z-index: 3;
+    img {
+      height: 100%;
+    }
+  }
+  .search-field {
+    font-size: $search-font-size;
+    font-weight: 300;
+    line-height: 1.4;
+    padding: $search-group-padding 10px;
+    text-align: center;
+  }
+}
+.flash-block {
+  position: fixed;
+  top: 10px;
+  right: 50px;
+  z-index: 1500;
+}
+.fake-nav {
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 100%;
+}
+.loading {
+  height: 50px;
+  width: 50px;
+  .status-loading {
+    height: inherit;
+  }
+}
+.status {
+  margin-bottom: 20px;
+  .lead {
+    margin: 0;
+  }
+  .loading {
+    margin-left: -50px;
+  }
+  * {
+    vertical-align: middle;
+  }
+}
+.form-group.disabled-input {
+  background-color: #eeeeee;
+  opacity: 1;
+  &:hover {
+    background-color: #eeeeee !important;
+  }
+  select {
+    background-color: #eeeeee !important;
+  }
+  * {
+    pointer-events: none;
+  }
+}
+.warning-img {
+  display: block;
+  height: 34px;
+  margin: 0 auto 12px;
+}
+.form-inline {
+  .multiselect-container {
+    li {
+      a {
+        label.checkbox {
+          input[type=checkbox] {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            margin: 6px 8px 6px 0 !important;
+          }
+        }
+      }
+    }
+  }
+}
+.multiselect-container {
+  > .filter > .input-group {
+    margin: 0;
+    width: 100%;
+    > .input-group-addon {
+      width: 50px;
+    }
+  }
+  > li {
+    &.disabled {
+      display: none;
+    }
+    > a.multiselect-all > label {
+      font-weight: 500 !important;
+    }
+    > a {
+      label.checkbox {
+        font-weight: 300;
+        padding: 4px 20px 4px 20px !important;
+        font-size: 16px;
+      }
+    }
+  }
+}
+.page-break-after {
+  page-break-after: always;
+  -webkit-region-break-after: always;
+}
+.page-break {
+  display: block;
+  float: none;
+}

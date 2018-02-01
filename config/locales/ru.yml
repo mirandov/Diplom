@@ -1,5 +1,6 @@
 ru:
   app:
+    name: MedStatReg
     patients:
       index: Список пациентов
       edit:  Редактирование пациентов

@@ -1,0 +1,78 @@
+$icomoon-font-path: "fonts" !default;
+
+$icon-search: "\e902";
+$icon-user: "\e903";
+$icon-star: "\e904";
+$icon-settings: "\e905";
+$icon-reports: "\e906";
+$icon-logout: "\e907";
+$icon-lock: "\e908";
+$icon-task: "\e900";
+$icon-alert-circle: "\e909";
+$icon-alert-octagon: "\e90a";
+$icon-alert-triangle: "\e90b";
+$icon-report: "\e901";
+
+$border-color: #777;
+
+$btn-border-radius: 30px;
+$btn-font-size: 16px;
+
+$main-menu-button-height: 90px;
+
+$color-text: #333333;
+// $color-primary: #D5FFD9;
+
+$green: #b5e3e5;
+
+$color-hover: 3%;
+$color-default: #f9f9f9;
+$color-primary: darken($green, $color-hover);
+$color-danger: #fff5fa;
+$color-more-danger: #ffe8f2;
+$color-notice: #E4F6FE;
+$color-warning: #fffcf0;
+
+$color-black: rgb(0, 0, 0);
+$color-white: rgb(255, 255, 255);
+
+$color-gray-25:  darken($color-white, 2.5%);
+$color-gray-50:  darken($color-white, 5%);
+$color-gray-75:  darken($color-white, 7.5%);
+$color-gray-100: darken($color-white, 10%);
+$color-gray-150: darken($color-white, 15%);
+$color-gray-200: darken($color-white, 20%);
+$color-gray-250: darken($color-white, 25%);
+$color-gray-300: darken($color-white, 30%);
+$color-gray-350: darken($color-white, 35%);
+$color-gray-400: darken($color-white, 40%);
+$color-gray-450: darken($color-white, 45%);
+$color-gray-500: darken($color-white, 50%);
+$color-gray-550: darken($color-white, 55%);
+$color-gray-600: darken($color-white, 60%);
+$color-gray-650: darken($color-white, 65%);
+$color-gray-700: darken($color-white, 70%);
+$color-gray-750: darken($color-white, 75%);
+$color-gray-800: darken($color-white, 80%);
+$color-gray-850: darken($color-white, 85%);
+$color-gray-900: darken($color-white, 90%);
+$color-gray-950: darken($color-white, 95%);
+
+
+$search-font-size: 20px;
+$search-group-padding: 8px;
+$search-group-height: 50px;
+
+$radio-button-diameter: 18px;
+$radio-button-point: $radio-button-diameter - 10;
+
+$header-paddin-top: 20px;
+$header-paddin-top-lg: $header-paddin-top * 2;
+
+$modal-header-size: 80px;
+$modal-header-padding: 22px;
+
+$input-height: 50px;
+$input-side-padding: 10px;
+$input-label-width: 36%;
+$input-font-size: 20px;

@@ -1,0 +1,4 @@
+%footer.footer.hidden-print
+  ="©2014-#{Time.now.year} • ООО ''Дистанционная медицина''"
+  - if Rails.env.staging?
+    = ' • тестовый сервер'

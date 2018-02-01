@@ -1,0 +1,84 @@
+/*--------------------------------*/
+/* operator main
+/*--------------------------------*/
+#new_edf {
+
+  #session_list {
+
+    table {
+      width: 100%;
+
+      thead,
+      tbody {
+        display: block;
+      }
+      
+      tbody {
+        overflow-x: hidden;
+        overflow-y: auto;
+
+        .session {
+
+          .s_t,
+          .e_t {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}
+
+#ecg_page {
+
+  #session_list2 {
+
+    table {
+      width: 100%;
+
+      thead,
+      tbody {
+        display: block;
+      }
+
+      thead th,
+      tbody td {
+        width: 5%
+      }
+      
+      tbody {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+.active_session {
+  background-color: #36A3C0;
+  
+  td {
+    color: #fff;
+  }
+
+  &:hover {
+    background-color: #36A3C0 !important;
+    cursor: default !important;
+  }
+}
+
+#task_actions {
+  // margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.edf_time_remove {
+  color: #A6B3CF;
+  cursor: pointer;
+  font-size: 30px;
+  line-height: 1;
+  padding: 10px 5px;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+}

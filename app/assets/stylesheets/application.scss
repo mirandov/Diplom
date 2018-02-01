@@ -1,0 +1,39 @@
+// This is a manifest file that'll be compiled into application.css, which will include all the files
+// listed below.
+//
+// Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+// or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+
+@import "variables";
+@import "mixins";
+
+// Import original bootstrap
+@import "bootstrap-sprockets";
+// @import "bootstrap";
+// We can also include optional bootstrap theme
+//@import "bootstrap/theme";
+
+// Import datepicker styles
+@import "bootstrap-datepicker3";
+
+// Application styles
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900&subset=latin,cyrillic');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700');
+@import "icons";
+@import "layout";
+@import "app-token-input";
+@import "bootstrap-theme";
+@import "token-input";
+// Specified styles
+@import "users";
+@import "people";
+@import "contact_phones";
+@import "meterages";
+@import "med_programs";
+@import "common";
+@import "cabinets";
+@import "operator";
+@import "report";
+@import "bootstrap-multiselect";
+
+// Do NOT place any css-code here! See layout.css.scss

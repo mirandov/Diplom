@@ -1,0 +1,18 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.dropdown-no-link > li {
+  clear: both;
+  color: #333333;
+  display: block;
+  font-weight: normal;
+  line-height: 1.42857;
+  padding: 3px 20px;
+  white-space: nowrap;
+  &:hover {
+    background-color: #F5F5F5;
+    color: #262626;
+    cursor: pointer;
+  }
+}

@@ -1,31 +1,35 @@
-%h1 Listing patients
+%section#users-list
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = 'Пациенты'
+          = link_to '+', new_patient_path, class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
 
-%table
-  %thead
-    %tr
-      %th= Patient.human_attribute_name(:surname)
-      %th= Patient.human_attribute_name(:name)
-      %th= Patient.human_attribute_name(:patronymic)
-      %th= Patient.human_attribute_name(:birthday)
-      %th= Patient.human_attribute_name(:medical_policy_id)
-      %th= Patient.human_attribute_name(:clinical_record_id)
-      %th
-      %th
-      %th
+      %table.table.table-hover
+        %thead
+          %tr
+            %th= Patient.human_attribute_name(:surname)
+            %th= Patient.human_attribute_name(:name)
+            %th= Patient.human_attribute_name(:patronymic)
+            %th= Patient.human_attribute_name(:birthday)
+            %th= Patient.human_attribute_name(:medical_policy_id)
+            %th= Patient.human_attribute_name(:clinical_record_id)
+            %th
+            %th
+            %th
 
-  %tbody
-    - @patients.each do |patient|
-      %tr
-        %td= patient.surname
-        %td= patient.name
-        %td= patient.patronymic
-        %td= patient.birthday
-        %td= full_mip_number(patient.medical_policy)
-        %td= full_record_number(patient.clinical_record)
-        %td= link_to 'Show', patient
-        %td= link_to 'Edit', edit_patient_path(patient)
-        %td= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }
+        %tbody
+          - @patients.each do |patient|
+            %tr
+              %td= patient.surname
+              %td= patient.name
+              %td= patient.patronymic
+              %td= patient.birthday
+              %td= full_mip_number(patient.medical_policy)
+              %td= full_record_number(patient.clinical_record)
+              %td= link_to 'Show', patient
+              %td= link_to 'Edit', edit_patient_path(patient)
+              %td= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Patient', new_patient_path
+      %br

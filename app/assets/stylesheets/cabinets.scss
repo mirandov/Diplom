@@ -1,0 +1,315 @@
+.tasks_class .container {
+  padding-bottom: 40px;
+  .relative {
+    position: relative;
+  }
+  .line {
+    border-left: 2px dashed #DDD;
+    bottom: 0;
+    display: block;
+    height: 89%;
+    margin-left: 50%;
+    position: absolute;
+  }
+}
+.form-horizontal {
+  .button {
+    a {
+      margin: 0 10px;
+      width: 260px;
+      img {
+        margin: 10px 0;
+        width: 100px;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 500;
+      }
+    }
+  }
+}
+.surname-formatted {
+  margin-right: 8px;
+}
+
+.avatar {
+  height: 100px;
+  margin-left: 10px;
+  overflow: hidden;
+  width: 100px;
+
+  img {
+    width: 100%;
+  }
+}
+
+/*--------------------------------*/
+/* patient page
+/*--------------------------------*/
+.patient_anamnesis {
+  left: 0;
+  position: absolute;
+  width: 100%;
+
+  a {
+    color: #252E33;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    &:hover {
+      color: #16A1C0;
+    }
+  }
+}
+
+/*--------------------------------*/
+/* patient page
+/*--------------------------------*/
+
+.patient_anamnesis {
+  left: 0;
+  position: absolute;
+  width: 100%;
+
+  a {
+    color: #252E33;
+    font-size: 13px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-decoration: none;
+    text-transform: uppercase;
+    
+    &:hover {
+      color: #16A1C0;
+    }
+  }
+}
+
+.report-page {
+  .warning-message {
+    padding-top: 20px;
+  }  
+}
+
+.warning-message {
+  padding: 30px 0;
+  text-align: center;
+  .warning-message-wrapper {
+    padding: 30px 40px;
+
+  }
+  * {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  span,
+  img {
+    height: 32px;
+    margin-right: 20px;
+  }
+  p {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+.info-table {
+  margin: 0 auto;
+
+  table {
+    line-height: 1.3;
+    width: 100%;
+
+    tr {
+
+      td {
+        border-top: 1px solid #DDD;
+        font-size: 17px;
+        padding: 8px 30px;
+        
+      }
+
+      &:first-child {
+
+        td {
+          border-top: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .info-table {
+
+    table {
+      white-space: normal;
+    }
+  } 
+
+  .info-table-patient-page {
+    width: 100% !important;
+  } 
+}
+
+.info-table-patient-page {
+  width: 50%;
+
+  table {
+
+    tr {
+
+      td:first-child {
+        font-weight: 500;
+        width: 34%;
+      }
+    }
+  }
+}
+
+.info-table-border {
+  border-top: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
+  padding: 10px 0;
+
+  .avatar {
+    margin-top: 40%;
+  }
+}
+
+/*--------------------------------*/
+/* med program page
+/*--------------------------------*/
+.doctor_data_rows {
+
+  .doctor_data_row {
+    border-top: 1px solid #DDD;
+    padding: 40px;
+    width: 100%;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+
+    .doctor_data_title {
+      font-size: 22px;
+      font-weight: 400;
+      margin-top: 0;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0 0 10px 10px;
+
+      b {
+        font-weight: 400;
+      }
+
+      li {
+        font-size: 17px;
+        font-weight: 400;
+
+        h5 {
+          font-size: 18px;
+
+          b {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    
+    p {
+      font-size: 17px;
+      padding-left: 15px;
+    }
+
+    table {
+      font-size: 17px;
+
+      tbody {
+        
+        tr {
+          
+          td {
+            padding: 2px 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.option_row {
+  padding-bottom: 40px;
+
+  .doctor_make_report {
+    margin-top: 40px;
+  }
+}
+
+.program-options {
+
+  .option_row {
+
+    .charts {
+
+      .graph {
+        font-size: 16px !important;
+        height: 280px !important;
+        width: 900px !important;
+
+        .legend {
+
+          table {    
+            font-size: 16px !important;
+            color: #000 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.value {
+  background: #000;
+}
+
+.employee-number,
+.patient-settings,
+.organisation-settings,
+.doctor-settings {
+  display: none;
+}
+
+.toggle-details ~ tr {
+
+  .complect-details {
+    padding: 20px 50px;
+  }
+
+  .inline {
+    margin-right: 50px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+}
+
+.toggle-details,
+.toggle-table {
+  cursor: pointer;
+}
+
+.toggle-table {
+  border-bottom: 1px solid #DDD;
+  margin: 0;
+  padding: 20px 0;
+}

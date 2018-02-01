@@ -1,0 +1,19 @@
+// Place all the styles related to the MedProgramTemplate controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.paid_data_expired {
+  @extend strong;
+}
+
+.red {
+  color: #CA000C;
+}
+
+.report-form__textarea {
+  width: 100%;
+  height: 100%;
+}
+.report-form__apply {
+  margin-top: 20px;
+}

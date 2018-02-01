@@ -1,0 +1,142 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table .grey-bg {
+  border: none;  
+  
+  tr {
+    // border-left: 2px solid #B0B0B0;
+    // border-right: 2px solid #B0B0B0;
+    // border-top: 2px solid #B0B0B0;
+    position: relative;
+
+    th {
+      background-color: #A6A6A6;
+      color: #FFF;
+      border-bottom: none;
+      // border-bottom: 1px solid #dddddd !important;
+      font-size: 16px;
+      font-weight: 400;
+      padding: 3px 8px;
+
+      a {
+        color: #FFF;        
+      }
+    }
+  }
+}
+
+.red-row {
+  border-left: 2px solid #FFDBD9;
+  border-right: 2px solid #FFDBD9;
+
+  td {
+    background-color: #FFDBD9;
+
+    .bold {
+      color: #EA6459;
+    }
+  }
+}
+
+.signature {
+
+  tbody {
+
+    tr {
+      
+      td {
+        font-size: 18px;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+.hidden-but-print {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.conclusion {
+  font-size: 18px;
+  font-weight: 300;
+  margin-left: 10px;
+
+  .bolder {
+    font-weight: 400; 
+  }
+}
+
+.report-page {
+  .header {
+    border-bottom: 2px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 10px;
+    .address p {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .logo img {
+      height: 58px;
+      position: relative;
+    }
+  }
+  .submit {
+    padding: 20px 0;
+  }
+  .table-report tr td {
+    border-color: #EBEBEB !important;
+    font-size: 16px;
+    line-height: 1.2 !important;
+    padding: 3px 10px !important;
+  }
+  .table-border tr {
+    -webkit-transition: ease-out .5s;
+    -moz-transition: ease-out .5s;
+    -o-transition: ease-out .5s;
+    transition: ease-out .5s;
+  }
+  .table-border tr:hover {
+    background-color: #E0E0E0;
+  }
+  #report__blood_press_graph,
+  #report__pulse_graph {
+    margin: 0 auto;
+  }
+  .legend > div {
+    display: none;
+  }
+  .timeform {
+    margin-top: 20px;
+  }
+  .timeform label {
+    font-weight: 400;
+  }
+  .timeform input {
+    margin-left: 10px;
+  }
+  .timeform input[type=text] {
+    height: 24px;
+    padding: 0 10px;
+  }
+  .table2 {
+    border: 2px solid #DDD;
+    margin-bottom: 20px;
+  }
+  .report-form textarea {
+    height: 250px;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 10px;
+    width: 100%;
+  }
+  #flot-placeholder {
+    height: 300px;
+  }
+  .make-report {
+    margin-bottom: 20px;
+  }
+}

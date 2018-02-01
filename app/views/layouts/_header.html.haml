@@ -1,0 +1,27 @@
+%header.navbar.navbar-default.hidden-print{ role: 'header' }
+  .navbar-wrapper
+    .navbar-brand
+      = link_to image_tag('mvd_logo.png'), '/', class: 'hidden-xs', title: 'На Главную'
+    %nav.collapse.navbar-collapse#navbar{ role: 'navigation' }
+      %ul.nav.navbar-nav.navbar-right.navbar-control
+
+        %li
+          = link_to destroy_user_session_path, class: 'navbar-logout', method: 'delete', title: 'Выход', data: { confirm: 'Вы действительно хотите выйти?' } do
+            %span.icon.icon-logout
+
+  /   button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#navbar' aria-controls='navbar' aria-expanded=false
+  /     span.sr-only= 'Toggle navigation'
+  /     span.icon-bar
+  /     span.icon-bar
+  /     span.icon-bar
+
+
+  .navbar-user
+    = link_to '/', title: 'На Главную' do
+
+      %br/
+      .big
+        = "ФКУЗ ЦДП МВД РОССИИ"
+.visible-print
+  %br/
+  %br/

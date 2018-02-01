@@ -1,0 +1,169 @@
+// Place all the styles related to the PasswordResets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.first-child-lefted {
+  & > thead > tr > th:first-child {
+    text-align: left;
+  }
+
+  & > tbody > tr > td:first-child {
+    text-align: left;
+  }
+}
+
+.ecg {
+  margin-bottom: 20px;
+}
+
+div.ecg_window > .flot-base {
+  background-image: image_url("ecg_back.png");
+}
+
+.ecg_graphic {
+  font-size: 14px;
+  height: 40px;
+  line-height: 1.2em;
+  margin-bottom: 10px;
+  width: 100%; 
+}
+
+.ecg_window {
+  height: 300px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.ecg_window_alarm {
+  // background-image: image_url("ecg_back.png");
+  overflow-x: scroll;
+  width: 100%;
+
+  .ecg_window {
+    margin: 0;
+  }
+}
+
+.ecg_static_info.col-md-12 {
+  position: absolute;
+
+  // > div > div {
+  //   background-color: rgba(250,250,250, .8);
+  //   box-shadow: 0 0 3px rgba(0,0,0,.4);
+  //   -webkit-box-shadow: 0 0 3px rgba(0,0,0,.4);
+  // }
+}
+
+.ecg_live_info,
+.ecg_static_info {
+  display: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+
+  > div {
+    padding-top: 4px;
+  }
+
+  #ecg_speed,
+  #ecg_amplitude,
+  .ecg_time {
+    display: inline-block;
+    font-weight: 600;
+    padding-left: 4px;
+  }
+
+  .ecg_time {
+    width: 80px;
+  }
+}
+
+.ecg_data_class {
+  height: 100%;
+  width: 100%;
+}
+
+.ecg_data_class > .col-lg-8 {
+  height: 100%;
+}
+
+.time-label {
+  color: #111;
+  float: left;
+  font-size: 12px;
+  left: 4px;
+  position: relative;
+  top: -48px;
+}
+
+.multiplot {
+  height: 100%;
+}
+
+.ecg_menu {
+  text-align: center;
+}
+
+.please_wait {
+
+  .ecg_status,
+  .ecg_status_offline {
+    margin-top: 110px;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.ecg_status {
+  margin-top: 30px;
+}
+
+.duration, .amplitude {
+  margin-top: 20px;
+}
+
+.ecg_control > label {
+//  margin-top: 10px;
+  font-weight: normal;
+  margin-bottom: 2px;
+//  .ecg_control_radio > label {
+//    font-weight: normal;
+//  }
+}
+
+#pulse {
+  background-color: #090909;
+  color: chartreuse;
+  font-size: 250%;
+  margin-left: 20%;
+  margin-right: 20%;
+  min-width: 70px;
+}
+
+.blood_graphic {
+  width: 100%;
+  height: 200px;
+  font-size: 14px;
+  line-height: 1.2em;
+}
+
+.blood_legend {
+  display: table;
+  height: 155px;
+  & > div {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+.graph_tooltip {
+  position: absolute;
+  display: none;
+  border: 1px solid #fdd;
+  padding: 2px;
+  background-color: #fee;
+  opacity: 0.8;
+}

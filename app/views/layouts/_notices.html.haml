@@ -1,0 +1,7 @@
+.flash-block.text-center.print-hidden
+  - if !flash.empty?
+    - flash.each do |key, value|
+      .alert.alert-dismissible.fade.in{ class: "alert-#{key}", id: ("flash_error"  if key == "alert") }
+        %button.close{ type: 'button', data: { dismiss: 'alert' } }
+          %span{ aria: { hidden: 'true' } } &times;
+        = value

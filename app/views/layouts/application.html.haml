@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %title= "MedStatReg"
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  %body
+    .container{ class: "#{controller_name}_class #{current_user.to_s}" }
+      .row
+        = render 'layouts/header'
+        = render 'layouts/notices'
+        = yield
+
+      %br/
+
+    = render 'layouts/footer'
+
+- if current_user
+  = render 'templates/change_role'
