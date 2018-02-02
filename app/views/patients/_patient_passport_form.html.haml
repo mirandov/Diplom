@@ -1,13 +1,5 @@
 %h3= "Форма паспорта"
-.field
-  = passport_form.label :serial_and_number
-  = passport_form.text_field :serial_and_number
-.field
-  = passport_form.label :issue_date
-  = passport_form.date_select :issue_date
-.field
-  = passport_form.label :issued_by
-  = passport_form.text_field :issued_by
-.field
-  = passport_form.label :passport_holder
-  = passport_form.text_field :passport_holder
+= passport_form.input :serial_and_number
+= datepicker_field(passport_form, :issue_date)
+= passport_form.input :issued_by
+= passport_form.input :passport_holder

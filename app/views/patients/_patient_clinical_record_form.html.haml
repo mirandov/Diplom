@@ -1,25 +1,9 @@
 %h3= "Форма карточки"
-.field
-  = clinical_record_form.label :record_number
-  = clinical_record_form.text_field :record_number
-.field
-  = clinical_record_form.label :prefix
-  = clinical_record_form.text_field :prefix
-.field
-  = clinical_record_form.label :suffix
-  = clinical_record_form.text_field :suffix
-.field
-  = clinical_record_form.label :attachment_date
-  = clinical_record_form.date_select :attachment_date
-.field
-  = clinical_record_form.label :last_registration_date
-  = clinical_record_form.date_select :last_registration_date
-.field
-  = clinical_record_form.label :detachment_date
-  = clinical_record_form.date_select :detachment_date
-.field
-  = clinical_record_form.label :reason_for_detachment
-  = clinical_record_form.text_area :reason_for_detachment
-.field
-  = clinical_record_form.label :site
-  = clinical_record_form.text_field :site_id
+= clinical_record_form.input :record_number
+= clinical_record_form.input :prefix
+= clinical_record_form.input :suffix
+= datepicker_field(clinical_record_form, :attachment_date)
+= datepicker_field(clinical_record_form, :last_registration_date)
+= datepicker_field(clinical_record_form, :detachment_date)
+= clinical_record_form.input :reason_for_detachment
+= clinical_record_form.input :site_id

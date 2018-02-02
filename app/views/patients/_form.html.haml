@@ -6,61 +6,43 @@
   #legal-entity-common-data
     = f.input :surname
     = f.input :name
+    = f.input :patronymic
     = datepicker_field(f, :birthday)
+    = f.input :sex
+    = f.input :full_name_parent
+    = f.input :mobile_phone_number
+    = f.input :work_phone_number
+    = f.input :rank
+    = f.input :disability
+    = f.input :certificate_of_deceased_parent
+    = f.input :certificate_of_nuclear_power_plant
+    = f.input :inila
+    = f.input :place_work_id , collection: place_work_for_select, include_blank: 'Выберите место службы'
+    %br/
+    = simple_form_for @address, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |address_form|
+      %h3= "Адрес проживания"
+      = address_form.input :site_id, collection: site_for_select, include_blank: 'Выберите участок'
+      = address_form.input :city_id,  collection: city_for_select, include_blank: 'Выберите город'
+      = address_form.input :street_id, collection: street_for_select, include_blank: 'Выберите улицу'
+      = address_form.input :house_id, collection: house_for_select, include_blank: 'Выберите дом'
+    %br/
+    -# = simple_form_for @passport, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |passport_form|
+    -#   %h3= "Форма паспорта"
+    -#   = passport_form.input :serial_and_number
+    -#   = datepicker_field(passport_form, :issue_date)
+    -#   = passport_form.input :issued_by
+    -#   = passport_form.input :passport_holder
+    -# = simple_form_for @medical_policy, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |medical_policy_form|
+    -#   = medical_policy_form.input :mip_number
+    -# %br/
+    -# = simple_form_for @medical_policy, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |medical_policy_form|
+    -#   = render('patients/patient_medical_policy_form', medical_policy_form: medical_policy_form)
+    -# %br/
+    -# = simple_form_for @clinical_record, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |clinical_record_form|
+    -#   = render('patients/patient_clinical_record_form', clinical_record_form: clinical_record_form)
+
   %br/
   = link_to "Назад", Patient
   = f.submit 'Сохранить', class: 'btn btn-primary'
-  -# .field
-  -#   = f.label :name
-  -#   = f.text_field :name
-  -# .field
-  -#   = f.label :patronymic
-  -#   = f.text_field :patronymic
-  -# .field
-  -#   = f.label :birthday
-  -#   = f.date_select :birthday
-  -# .field
-  -#   = f.label :sex
-  -#   = f.text_field :sex
-  -# .field
-  -#   = f.label :full_name_parent
-  -#   = f.text_field :full_name_parent
-  -# .field
-  -#   = f.label :mobile_phone_number
-  -#   = f.text_field :mobile_phone_number
-  -# .field
-  -#   = f.label :work_phone_number
-  -#   = f.text_field :work_phone_number
-  -# .field
-  -#   = f.label :rank
-  -#   = f.text_field :rank
-  -# .field
-  -#   = f.label :disability
-  -#   = f.text_field :disability
-  -# .field
-  -#   = f.label :certificate_of_deceased_parent
-  -#   = f.text_field :certificate_of_deceased_parent
-  -# .field
-  -#   = f.label :certificate_of_nuclear_power_plant
-  -#   = f.text_field :certificate_of_nuclear_power_plant
-  -# .field
-  -#   = f.label :inila
-  -#   = f.text_field :inila
-  -# .field
-  -#   = f.label :place_work_id
-  -#   = f.select :place_work_id , place_work_for_select, include_blank: 'Выберите место службы'
-  -#
-  -# = f.fields_for :address, @address do |address_form|
-  -#   = render('patients/patient_address_form', address_form: address_form)
-  -#
-  -# = f.fields_for :passport, @passport do |passport_form|
-  -#   = render('patients/patient_passport_form', passport_form: passport_form)
-  -#
-  -# = f.fields_for :medical_policy, @medical_policy do |medical_policy_form|
-  -#   = render('patients/patient_medical_policy_form', medical_policy_form: medical_policy_form)
-  -#
-  -# = f.fields_for :clinical_record, @clinical_record do |clinical_record_form|
-  -#   = render('patients/patient_clinical_record_form', clinical_record_form: clinical_record_form)
-  -#
   -# .actions
   -#   = f.submit 'Save'

@@ -18,6 +18,16 @@ Rails.application.routes.draw do
   resources :cities
   resources :people
   devise_for :users
+
+  resources :cabinets
+   # get 'cabinets' => 'people#cabinet'
+   # put 'select_role' => 'cabinets#select_role', as: :select_role, on: :collection
+  
+
+  # authenticated :user, lambda { |u| u.has_role? :admin } do
+  #  # root :to => 'users#index', :as => :admin_root
+  #  root :to => 'cabinets#index', :as => :admin_root
+  # end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

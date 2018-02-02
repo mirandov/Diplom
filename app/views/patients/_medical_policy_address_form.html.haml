@@ -1,13 +1,5 @@
 %h3= "Адрес регистрации"
-.field
-  = address_policy_form.label :site
-  = address_policy_form.select :site_id, site_for_select, include_blank: 'Выберите участок'
-.field
-  = address_policy_form.label :city
-  = address_policy_form.select :city_id, city_for_select, include_blank: 'Выберите город'
-.field
-  = address_policy_form.label :street
-  = address_policy_form.select :street_id, street_for_select, include_blank: 'Выберите улицу'
-.field
-  = address_policy_form.label :house
-  = address_policy_form.select :house_id, house_for_select, include_blank: 'Выберите дом'
+= address_policy_form.input :site_id, collection: site_for_select, include_blank: 'Выберите участок'
+= address_policy_form.input :city_id, collection: city_for_select, include_blank: 'Выберите город'
+= address_policy_form.input :street_id,collection: street_for_select, include_blank: 'Выберите улицу'
+= address_policy_form.input :house_id, collection: house_for_select, include_blank: 'Выберите дом'
