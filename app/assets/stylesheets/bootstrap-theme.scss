@@ -3098,7 +3098,7 @@ input[type="search"] {
   input[type="file"]:not(.file) {
     cursor: pointer;
     opacity: 0;
-    filter: alpha(opacity=0); 
+    filter: alpha(opacity=0);
   }
   input[type="file"]::-webkit-file-upload-button {
     visibility: hidden;
@@ -3199,9 +3199,9 @@ input[type="search"] {
     .input-group-addon {
       right: 0;
       pointer-events: none;
-    } 
+    }
   }
-  &.radio_buttons, 
+  &.radio_buttons,
   &.attachment {
     border-bottom: 1px solid #bbb;
     height: $input-height;

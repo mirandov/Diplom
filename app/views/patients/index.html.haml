@@ -15,9 +15,7 @@
             %th= Patient.human_attribute_name(:birthday)
             %th= Patient.human_attribute_name(:medical_policy_id)
             %th= Patient.human_attribute_name(:clinical_record_id)
-            %th
-            %th
-            %th
+
 
         %tbody
           - @patients.each do |patient|
@@ -28,8 +26,6 @@
               %td= patient.birthday
               %td= full_mip_number(patient.medical_policy)
               %td= full_record_number(patient.clinical_record)
-              %td= link_to 'Show', patient
-              %td= link_to 'Edit', edit_patient_path(patient)
-              %td= link_to 'Destroy', patient, method: :delete, data: { confirm: 'Are you sure?' }
+
 
       %br

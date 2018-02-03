@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :description_diagnoses
   resources :complictations
   resources :class_diseases
@@ -17,12 +18,15 @@ Rails.application.routes.draw do
   resources :streets
   resources :cities
   resources :people
-  devise_for :users
 
+  devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'},
+              controllers: {sign_up: 'registrations'}
+
+  root :to => 'cabinets#index'
   resources :cabinets
    # get 'cabinets' => 'people#cabinet'
    # put 'select_role' => 'cabinets#select_role', as: :select_role, on: :collection
-  
+
 
   # authenticated :user, lambda { |u| u.has_role? :admin } do
   #  # root :to => 'users#index', :as => :admin_root

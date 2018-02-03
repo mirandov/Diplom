@@ -1,6 +1,6 @@
 class CabinetsController < ApplicationController
   def index
-    render '/app/views/cabinets/index'
+    # render '/app/views/cabinets/index'
   end
   def show
     redirect_to cabinets_path('/app/cabinets/admin')
