@@ -124,6 +124,27 @@ ru:
     models:
       patient: Пациент
     attributes:
+      medical_policy:
+        mip_number: Номер полиса
+      clinical_record:
+        record_number:          Номер карты
+        prefix:                 Префикс
+        suffix:                 Суффикс
+        attachment_date:        Дата прикрепления
+        last_registration_date: Дата последней  регистрации
+        detachment_date:        Дата открепления
+        reason_for_detachment:  Причина открепления
+        site_id:                Участок
+      passport:
+        serial_and_number: Серия и номер паспорта
+        issue_date:        Дата выдачи
+        issued_by:         Кем выдан?
+        passport_holder:   Держатель паспорта
+      address:
+        site_id:          Регион
+        city_id:          Город
+        street_id:        Улица
+        house_id:         Дом
       patient:
         surname:                            Фамилия
         name:                               Имя
@@ -135,7 +156,7 @@ ru:
         work_phone_number:                  Рабочий телефон родителя
         rank:                               Звание
         disability:                         Инвалидность
-        certificate_of_deceased_parent:     Дети умерший при исполнении сотрудников
+        certificate_of_deceased_parent:     Свидетельство о сметри родителей
         certificate_of_nuclear_power_plant: Дети ветеранов АЭС
         inila:                              СНИЛС
         place_work_id:                      Место службы

@@ -1,10 +1,10 @@
 class Patient < ActiveRecord::Base
   belongs_to :place_work
   belongs_to :address
-  
-  has_one :clinical_record
-  has_one :medical_policy
-  has_one :passport
+
+  has_one :clinical_record, dependent: :destroy
+  has_one :medical_policy, dependent: :destroy
+  has_one :passport, dependent: :destroy
 
   has_many :diagnoses
 

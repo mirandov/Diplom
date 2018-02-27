@@ -68,3 +68,4 @@
     %br/
     = back_btn_to patients_path  :index, Patient
     = link_to 'Править', edit_patient_path(@patient), class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
+    = link_to 'Удалить', @patient, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' }
