@@ -9,7 +9,9 @@ class CreateClinicalRecords < ActiveRecord::Migration
       t.date :detachment_date
       t.text :reason_for_detachment
       t.references :site, index: true, foreign_key: true
+      t.references :patient, foreign_key: true
 
+      t.index :patient_id, unique: true
       t.timestamps null: false
     end
   end

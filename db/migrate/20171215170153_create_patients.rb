@@ -16,13 +16,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :inila
       t.references :place_work, index: true, foreign_key: true
       t.references :address, index: true, foreign_key: true
-      t.references :clinical_record, foreign_key: true
-      t.references :medical_policy, foreign_key: true
-      t.references :passport, foreign_key: true
 
-      t.index :passport_id, unique: true
-      t.index :medical_policy_id, unique: true
-      t.index :clinical_record_id, unique: true
 
       t.timestamps null: false
     end

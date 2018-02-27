@@ -15,17 +15,20 @@
             %th= Patient.human_attribute_name(:birthday)
             %th= Patient.human_attribute_name(:medical_policy_id)
             %th= Patient.human_attribute_name(:clinical_record_id)
+            %th= Patient.human_attribute_name(:passport_id)
 
 
         %tbody
           - @patients.each do |patient|
-            %tr
+            %tr.tr-href{ data: { link: patient_path(patient.id) } }
               %td= patient.surname
               %td= patient.name
               %td= patient.patronymic
-              %td= patient.birthday
+              %td= l(patient.birthday, format: :default)
               %td= full_mip_number(patient.medical_policy)
               %td= full_record_number(patient.clinical_record)
+              %td= patient.passport.serial_and_number
+
 
 
       %br

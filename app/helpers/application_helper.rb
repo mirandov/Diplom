@@ -17,5 +17,68 @@ module ApplicationHelper
         icon + counter
       end
     end
-end
+  end
+  # Генерирует кнопку "Назад"
+ def back_btn_to(path, id=nil, data=nil)
+   link_to t('views.buttons.back'), path, class: 'btn btn-default', id: id, data: data
+ end
+
+ # Генерирует кнопку "Далее"
+ def next_btn_to(form, options = {class: 'btn btn-primary'})
+   form.button :submit, t('views.buttons.next'), options
+ end
+
+ # Генерирует кнопку "Редактировать"
+ def edit_btn_to(path, text=nil)
+   if text.nil?
+     text = t 'views.buttons.edit'
+   end
+   text = (text.to_s if text.present?)
+   classes = 'btn btn-primary'
+   link_to(
+       path,
+       class: classes,
+       title: text) do
+     content_tag(:span, nil, class: ('glyphicon glyphicon-pencil' unless text)) +
+         "\n#{text}"
+   end
+ end
+
+ # Генерирует кнопку "Удалить"
+ def delete_btn_to(path, text=nil)
+   if text.nil?
+     text = t 'views.buttons.delete'
+   end
+   text = (text.to_s if text.present?)
+   classes = 'btn btn-primary'
+   link_to(
+       path,
+       method: :delete,
+       class: classes,
+       data: { confirm: t('views.messages.are_you_sure') },
+       title: text) do
+     content_tag(:span, nil, class: ('glyphicon glyphicon-trash' unless text)) +
+         "\n#{text}"
+   end
+ end
+
+ def back_to_list_btn(path)
+   link_to path, class: 'btn btn-default btn-sm' do
+     content_tag(:span, nil, class: 'glyphicon glyphicon-list-alt').concat(
+         " #{t('views.buttons.to_list')}"
+     )
+   end
+ end
+
+ def pick_btn_to(path, params)
+   link_to(path, class: 'btn btn-success', title: t('views.buttons.pick'))
+ end
+
+ def download_btn_to(path)
+   link_to(path, class: 'btn btn-primary btn-sm', target: '_blank',
+           :title => t('views.buttons.download')) do
+     content_tag :span, nil, :class => 'glyphicon glyphicon-download'
+   end
+ end
+
 end

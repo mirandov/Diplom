@@ -1,3 +1,3 @@
 class Passport < ActiveRecord::Base
-  has_one :patients
+  belongs_to :patient
 end

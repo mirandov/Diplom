@@ -69,6 +69,6 @@ class PassportsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def passport_params
-      params.require(:passport).permit(:serial_and_number, :issue_date, :issued_by, :passport_holder)
+      params.require(:passport).permit(:serial_and_number, :issue_date, :issued_by, :passport_holder, :patient_id)
     end
 end

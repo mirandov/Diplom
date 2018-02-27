@@ -53,10 +53,12 @@ ActiveRecord::Schema.define(version: 20171215170321) do
     t.date     "detachment_date"
     t.text     "reason_for_detachment"
     t.integer  "site_id"
+    t.integer  "patient_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
+  add_index "clinical_records", ["patient_id"], name: "index_clinical_records_on_patient_id", unique: true, using: :btree
   add_index "clinical_records", ["site_id"], name: "index_clinical_records_on_site_id", using: :btree
 
   create_table "complictations", force: :cascade do |t|
@@ -122,20 +124,25 @@ ActiveRecord::Schema.define(version: 20171215170321) do
   create_table "medical_policies", force: :cascade do |t|
     t.string   "mip_number"
     t.integer  "address_id"
+    t.integer  "patient_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "medical_policies", ["address_id"], name: "index_medical_policies_on_address_id", using: :btree
+  add_index "medical_policies", ["patient_id"], name: "index_medical_policies_on_patient_id", unique: true, using: :btree
 
   create_table "passports", force: :cascade do |t|
     t.string   "serial_and_number"
     t.date     "issue_date"
     t.string   "issued_by"
     t.string   "passport_holder"
+    t.integer  "patient_id"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
+
+  add_index "passports", ["patient_id"], name: "index_passports_on_patient_id", unique: true, using: :btree
 
   create_table "patients", force: :cascade do |t|
     t.string   "surname"
@@ -153,17 +160,11 @@ ActiveRecord::Schema.define(version: 20171215170321) do
     t.string   "inila"
     t.integer  "place_work_id"
     t.integer  "address_id"
-    t.integer  "clinical_record_id"
-    t.integer  "medical_policy_id"
-    t.integer  "passport_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
 
   add_index "patients", ["address_id"], name: "index_patients_on_address_id", using: :btree
-  add_index "patients", ["clinical_record_id"], name: "index_patients_on_clinical_record_id", unique: true, using: :btree
-  add_index "patients", ["medical_policy_id"], name: "index_patients_on_medical_policy_id", unique: true, using: :btree
-  add_index "patients", ["passport_id"], name: "index_patients_on_passport_id", unique: true, using: :btree
   add_index "patients", ["place_work_id"], name: "index_patients_on_place_work_id", using: :btree
 
   create_table "people", force: :cascade do |t|
@@ -232,6 +233,7 @@ ActiveRecord::Schema.define(version: 20171215170321) do
   add_foreign_key "addresses", "houses"
   add_foreign_key "addresses", "sites"
   add_foreign_key "addresses", "streets"
+  add_foreign_key "clinical_records", "patients"
   add_foreign_key "clinical_records", "sites"
   add_foreign_key "complictations", "class_diseases"
   add_foreign_key "description_diagnoses", "complictations"
@@ -240,10 +242,9 @@ ActiveRecord::Schema.define(version: 20171215170321) do
   add_foreign_key "diagnoses", "positions"
   add_foreign_key "houses", "streets"
   add_foreign_key "medical_policies", "addresses"
+  add_foreign_key "medical_policies", "patients"
+  add_foreign_key "passports", "patients"
   add_foreign_key "patients", "addresses"
-  add_foreign_key "patients", "clinical_records"
-  add_foreign_key "patients", "medical_policies"
-  add_foreign_key "patients", "passports"
   add_foreign_key "patients", "place_works"
   add_foreign_key "positions", "departments"
   add_foreign_key "positions", "doctors"

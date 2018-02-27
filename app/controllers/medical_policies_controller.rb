@@ -69,6 +69,6 @@ class MedicalPoliciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medical_policy_params
-      params.require(:medical_policy).permit(:mip_number, :address_id)
+      params.require(:medical_policy).permit(:mip_number, :patient_id, :address_id)
     end
 end

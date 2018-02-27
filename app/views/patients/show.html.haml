@@ -1,59 +1,70 @@
-%p#notice= notice
-%p
-  %b= Patient.human_attribute_name(:surname)
-  = @patient.surname
-%p
-  %b= Patient.human_attribute_name(:name)
-  = @patient.name
-%p
-  %b= Patient.human_attribute_name(:patronymic)
-  = @patient.patronymic
-%p
-  %b= Patient.human_attribute_name(:birthday)
-  = @patient.birthday
-%p
-  %b= Patient.human_attribute_name(:sex)
-  = @patient.sex
-%p
-  %b= Patient.human_attribute_name(:full_name_parent)
-  = @patient.full_name_parent
-%p
-  %b= Patient.human_attribute_name(:mobile_phone_number)
-  = @patient.mobile_phone_number
-%p
-  %b= Patient.human_attribute_name(:work_phone_number)
-  = @patient.work_phone_number
-%p
-  %b= Patient.human_attribute_name(:rank)
-  = @patient.rank
-%p
-  %b= Patient.human_attribute_name(:disability)
-  = @patient.disability
-%p
-  %b= Patient.human_attribute_name(:certificate_of_deceased_parent)
-  = @patient.certificate_of_deceased_parent
-%p
-  %b= Patient.human_attribute_name(:certificate_of_nuclear_power_plant)
-  = @patient.certificate_of_nuclear_power_plant
-%p
-  %b= Patient.human_attribute_name(:inila)
-  = @patient.inila
-%p
-  %b= Patient.human_attribute_name(:place_work_id)
-  = @patient.place_work.nil? ? "Отсутствует" : @patient.place_work.job_name
-%p
-  %b= Patient.human_attribute_name(:address_id)
-  = full_address(@patient.address)
-%p
-  %b= Patient.human_attribute_name(:clinical_record_id)
-  = full_record_number(@patient.clinical_record)
-%p
-  %b= Patient.human_attribute_name(:medical_policy_id)
-  = full_mip_number(@patient.medical_policy)
-%p
-  %b= Patient.human_attribute_name(:passport_id)
-  = @patient.passport.serial_and_number
-
-= link_to 'Edit', edit_patient_path(@patient)
-\|
-= link_to 'Back', patients_path
+.col-md-8.col-md-offset-2
+  .panel-group{ role: 'tablist', aria: { multiselectable: true } }
+    .panel.panel-default
+      .panel-heading#headingOne{ role: 'tab' }
+        .panel-title
+          = link_to '#collapseOne', role: 'button', data: { toggle: 'collapse' }, aria: { expanded: true, controls: '#collapseOne' } do
+            %h4.text-center= 'Информация'
+      .panel-collapse.collapse.in#collapseOne{ role: 'tabpanel', aria: { labelledby: 'headingOne' } }
+        .panel-body
+          %table.table.small.table-striped.table-narrow-column
+            %tbody
+              %tr
+                %th= "#{ Patient.human_attribute_name(:surname)}:"
+                %td= @patient.surname
+              %tr
+                %th= "#{Patient.human_attribute_name(:name)}:"
+                %td= @patient.name
+              %tr
+                %th= "#{ Patient.human_attribute_name(:patronymic)}:"
+                %td= @patient.patronymic
+              %tr
+                %th= "#{ Patient.human_attribute_name(:birthday)}:"
+                %td= l(@patient.birthday, format: :default)
+              %tr
+                %th= "#{ Patient.human_attribute_name(:sex)}:"
+                %td= @patient.sex
+              %tr
+                %th= "#{  Patient.human_attribute_name(:full_name_parent)}:"
+                %td= @patient.full_name_parent
+              %tr
+                %th= "#{ Patient.human_attribute_name(:mobile_phone_number)}:"
+                %td= @patient.mobile_phone_number
+              %tr
+                %th= "#{ Patient.human_attribute_name(:work_phone_number)}:"
+                %td= @patient.work_phone_number
+              %tr
+                %th= "#{ Patient.human_attribute_name(:rank)}:"
+                %td= @patient.rank
+              %tr
+                %th= "#{ Patient.human_attribute_name(:disability)}:"
+                %td= @patient.disability
+              %tr
+                %th= "#{ Patient.human_attribute_name(:certificate_of_deceased_parent)}:"
+                %td= @patient.certificate_of_deceased_parent
+              %tr
+                %th= "#{ Patient.human_attribute_name(:certificate_of_nuclear_power_plant)}:"
+                %td= @patient.certificate_of_nuclear_power_plant
+              %tr
+                %th= "#{ Patient.human_attribute_name(:inila)}:"
+                %td= @patient.inila
+              %tr
+                %th= "#{ Patient.human_attribute_name(:place_work_id)}:"
+                %td=  @patient.place_work.nil? ? "Отсутствует" : @patient.place_work.job_name
+              %tr
+                %th= "#{ Patient.human_attribute_name(:address_id)}:"
+                %td=  full_address(@patient.address)
+              %tr
+                %th= "#{ Patient.human_attribute_name(:clinical_record_id)}:"
+                %td= full_record_number(@patient.clinical_record)
+              %tr
+                %th= "#{ Patient.human_attribute_name(:medical_policy_id)}:"
+                %td= full_mip_number(@patient.medical_policy)
+              %tr
+                %th= "#{ Patient.human_attribute_name(:passport_id)}:"
+                %td=  @patient.passport.serial_and_number
+  .text-center
+    %br/
+    %br/
+    = back_btn_to patients_path  :index, Patient
+    = link_to 'Править', edit_patient_path(@patient), class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'

@@ -69,6 +69,6 @@ class ClinicalRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def clinical_record_params
-      params.require(:clinical_record).permit(:record_number, :prefix, :suffix, :attachment_date, :last_registration_date, :detachment_date, :reason_for_detachment, :site_id)
+      params.require(:clinical_record).permit(:patient_id, :record_number, :prefix, :suffix, :attachment_date, :last_registration_date, :detachment_date, :reason_for_detachment, :site_id)
     end
 end

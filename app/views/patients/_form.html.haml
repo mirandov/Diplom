@@ -18,8 +18,7 @@
     = f.input :certificate_of_nuclear_power_plant
     = f.input :inila
     = f.input :place_work_id , collection: place_work_for_select, include_blank: 'Выберите место службы'
-    %br/
-    = simple_form_for @address do |address_form|
+    =f.simple_fields_for :address, @address do |address_form|
       %h3= "Адрес проживания"
       = address_form.input :site_id, collection: site_for_select, include_blank: 'Выберите участок'
       = address_form.input :city_id,  collection: city_for_select, include_blank: 'Выберите город'
@@ -27,19 +26,17 @@
       = address_form.input :house_id, collection: house_for_select, include_blank: 'Выберите дом'
 
     %br/
-    = simple_form_for @passport do |passport_form|
+    =f.simple_fields_for  :passport, @passport do |passport_form|
       %h3= "Форма паспорта"
       = passport_form.input :serial_and_number
       = datepicker_field(passport_form, :issue_date)
       = passport_form.input :issued_by
       = passport_form.input :passport_holder
-    = simple_form_for @medical_policy do |medical_policy_form|
-      = medical_policy_form.input :mip_number
     %br/
-    = simple_form_for @medical_policy do |medical_policy_form|
+    =f.simple_fields_for :medical_policy, @medical_policy do |medical_policy_form|
       = render('patients/patient_medical_policy_form', medical_policy_form: medical_policy_form)
     %br/
-    = simple_form_for @clinical_record do |clinical_record_form|
+    =f.simple_fields_for  :clinical_record, @clinical_record do |clinical_record_form|
       = render('patients/patient_clinical_record_form', clinical_record_form: clinical_record_form)
 
     %br/

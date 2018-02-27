@@ -1,7 +1,7 @@
 class ClinicalRecord < ActiveRecord::Base
   belongs_to :site
 
-  has_one :patients
+  belongs_to :patient
 
 
 end

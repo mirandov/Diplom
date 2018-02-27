@@ -19,7 +19,7 @@ class PatientsController < ApplicationController
     @medical_policy   = @patient.build_medical_policy
     @clinical_record  = @patient.build_clinical_record
     @address          = @patient.build_address
-    @address_policy   = @medical_policy.build_address
+    # @address_policy   = @medical_policy.build_address
   end
 
   # GET /patients/1/edit
@@ -90,18 +90,18 @@ class PatientsController < ApplicationController
         :inila,
         :place_work_id,
         :address_id,
-        :clinical_record_id,
-        :medical_policy_id,
         :passport_attributes => [
           :id,
           :serial_and_number,
           :issue_date,
           :issued_by,
-          :passport_holder
+          :passport_holder,
+          :patient_id
         ],
         :medical_policy_attributes => [
           :id,
           :mip_number,
+          :patient_id,
           :address_id,
           :address_attributes => [
             :id,
@@ -119,6 +119,7 @@ class PatientsController < ApplicationController
           :attachment_date,
           :last_registration_date,
           :detachment_date,
+          :patient_id,
           :reason_for_detachment,
           :site_id
         ],

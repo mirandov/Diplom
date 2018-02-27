@@ -21,14 +21,14 @@ module PatientsHelper
   end
 
   def full_record_number(clinical_record)
-  clinical_record.record_number.present? ? "#{clinical_record.prefix}-#{clinical_record.record_number}/#{clinical_record.suffix}" : "Данные отсутствуют"
+  clinical_record.present? ? "#{clinical_record.prefix}-#{clinical_record.record_number}/#{clinical_record.suffix}" : "Данные отсутствуют"
   end
 
   def full_address(address)
-    address.city.nil? ? "Адрес не указан" : "#{address.city.city_name}, ул. #{address.street.street_name}, д. #{address.house.house_number}"
+    address.nil? ? "Адрес не указан" : "#{address.city.city_name}, ул. #{address.street.street_name}, д. #{address.house.house_number}"
   end
 
   def full_mip_number(medical_policy)
-    medical_policy.mip_number.present? ? medical_policy.mip_number : "Данные отсутствуют"
+    medical_policy.present? ? medical_policy.mip_number : "Данные отсутствуют"
   end
 end

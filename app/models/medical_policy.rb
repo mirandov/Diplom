@@ -1,7 +1,7 @@
 class MedicalPolicy < ActiveRecord::Base
   belongs_to :address
 
-  has_one :patients
+  belongs_to :patient
 
   accepts_nested_attributes_for :address
 end
