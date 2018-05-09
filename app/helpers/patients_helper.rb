@@ -25,7 +25,7 @@ module PatientsHelper
   end
 
   def full_address(address)
-    address.nil? ? "Адрес не указан" : "#{address.city.city_name}, ул. #{address.street.street_name}, д. #{address.house.house_number}"
+    address.city.present? ?  "#{address.city.city_name}, ул. #{address.street.street_name}, д. #{address.house.house_number}" : "Адрес не указан" 
   end
 
   def full_mip_number(medical_policy)

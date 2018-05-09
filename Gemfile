@@ -123,8 +123,8 @@ gem 'jquery-turbolinks'
 
 # Use Bootstrap Datepicker with Rails
 #   and timepicker support
-# gem 'bootstrap-datepicker-rails', :github => 'pmtgroup/bootstrap-datepicker-rails', :branch => 'master'
-gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
+gem 'bootstrap-datepicker-rails', :github => 'pmtgroup/bootstrap-datepicker-rails', :branch => 'master'
+# gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails', :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 # Use flot: attractive JavaScript charts for jQuery
 
 

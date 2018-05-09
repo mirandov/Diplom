@@ -1,0 +1,46 @@
+
+.container
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = link_to 'Возраста пациентов', reports_path
+
+      = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-3 text-center', role: :form } do |f|
+        = datepicker_field(f, :begin_date, label: false, icon: false, placeholder: 'c', value: params[:begin_date])
+        = datepicker_field(f, :end_date, label: false, icon: false, placeholder: 'по', value: params[:end_date])
+        .inline
+          = submit_tag 'Поиск', class: 'btn btn-primary'
+          = link_to 'Сбросить',  place_work_report_reports_path, class: 'btn btn-default'
+
+      %br/
+      %br/
+      %table.table.table-striped
+        %thead
+          %tr
+            %th.text-center.bold.center.th-popover{ rowspan: 2 } Место службы
+            %th.text-center.th-popover{ colspan: 2 } Количество пациентов
+            %th.text-center.th-popover{ colspan: 2 } Пациенты младше 15 лет
+            %th.text-center.th-popover{ colspan: 2 } Пациенты старше 15 лет
+          %tr
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+
+
+        %tbody
+          - @companies.each do |company, report|
+            %tr
+              %td.text-center= company.job_name
+              %td.text-center= report[:under_male] + report[:older_male]
+              %td.text-center= report[:under_female] + report[:older_female]
+              %td.text-center= report[:under_male]
+              %td.text-center= report[:under_female]
+              %td.text-center= report[:older_male]
+              %td.text-center= report[:older_female]
+          %tr
+            %th.text-right.th-popover{ colspan: 6 }  Всего пациентов:
+            %th.text-center= patients(@companies)

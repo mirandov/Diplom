@@ -8,7 +8,7 @@
     = f.input :name
     = f.input :patronymic
     = datepicker_field(f, :birthday)
-    = f.input :sex
+    = f.input :sex, collection: [:true, :false]
     = f.input :full_name_parent
     = f.input :mobile_phone_number
     = f.input :work_phone_number

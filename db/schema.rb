@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171215170321) do
+ActiveRecord::Schema.define(version: 20180509180058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,7 +149,6 @@ ActiveRecord::Schema.define(version: 20171215170321) do
     t.string   "name"
     t.string   "patronymic"
     t.date     "birthday"
-    t.string   "sex"
     t.string   "full_name_parent"
     t.string   "mobile_phone_number"
     t.string   "work_phone_number"
@@ -162,6 +161,7 @@ ActiveRecord::Schema.define(version: 20171215170321) do
     t.integer  "address_id"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
+    t.boolean  "sex"
   end
 
   add_index "patients", ["address_id"], name: "index_patients_on_address_id", using: :btree
@@ -192,6 +192,11 @@ ActiveRecord::Schema.define(version: 20171215170321) do
 
   add_index "positions", ["department_id"], name: "index_positions_on_department_id", using: :btree
   add_index "positions", ["doctor_id"], name: "index_positions_on_doctor_id", using: :btree
+
+  create_table "reports", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "sites", force: :cascade do |t|
     t.string   "site_name"
