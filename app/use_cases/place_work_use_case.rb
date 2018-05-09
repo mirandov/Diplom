@@ -25,7 +25,6 @@ class PlaceWorkUseCase
 
       patients_all = Patient.where(place_work_id: company.id)
       patients_all.each do |patient|
-        # raise (patient.clinical_record.last_registration_date > Date.parse(@begin_date)).inspect
         if (patient.clinical_record.last_registration_date > Date.parse(@begin_date)) && (patient.clinical_record.last_registration_date < Date.parse(@end_date))
           patients_q << patient
         end
