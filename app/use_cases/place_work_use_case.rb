@@ -21,18 +21,18 @@ class PlaceWorkUseCase
       older_female   = 0
       under_female   = 0
       older_male     = 0
-      patients_q      = []
+      patients      = []
 
-      patients_all = Patient.where(place_work_id: company.id)
-      patients_all.each do |patient|
+      all = Patient.where(place_work_id: company.id)
+      all.each do |patient|
         if (patient.clinical_record.last_registration_date > Date.parse(@begin_date)) && (patient.clinical_record.last_registration_date < Date.parse(@end_date))
-          patients_q << patient
+          patients << patient
         end
       end
 
       years_15 = Date.today - 15.year
 
-      patients_q.each do |old|
+      patients.each do |old|
         all_patients += 1
         if old.birthday > years_15
           under +=1
@@ -53,7 +53,7 @@ class PlaceWorkUseCase
 
       @data[company] = {
         place_work:   company.job_name,
-        all_patients: patients_q.size,
+        all_patients: patients.size,
         under:        under,
         older:        older,
         under_male:   under_male,

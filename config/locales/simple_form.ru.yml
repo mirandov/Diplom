@@ -1,12 +1,22 @@
 ru:
   simple_form:
     options:
+      report:
+        type:
+          true:  Прикрепленные
+          false: Открепленные
+      # report:
+      #   params[:type]:
+      #     "true":  Прикрепленные
+      #     "false": Открепленные
       patient:
         sex: &gender
           "true":  Муж.
           "false": Жен.
     "yes": 'Yes'
     "no": 'No'
+    "true":  Прикрепленные
+    "false": Открепленные
     required:
       text: 'required'
       mark: '*'

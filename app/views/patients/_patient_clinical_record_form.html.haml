@@ -6,4 +6,4 @@
 = datepicker_field(clinical_record_form, :last_registration_date)
 = datepicker_field(clinical_record_form, :detachment_date)
 = clinical_record_form.input :reason_for_detachment
-= clinical_record_form.input :site_id
+= clinical_record_form.input :site_id, collection: site_for_select, include_blank: 'Выберите участок'

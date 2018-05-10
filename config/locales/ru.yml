@@ -124,6 +124,10 @@ ru:
     models:
       patient: Пациент
     attributes:
+      report:
+        type:
+          "true":  Прикрепленные
+          "false": Открепленные
       medical_policy:
         mip_number: Номер полиса
       clinical_record:
@@ -146,6 +150,7 @@ ru:
         street_id:        Улица
         house_id:         Дом
       patient:
+        full_name:                          Ф.И.О
         surname:                            Фамилия
         name:                               Имя
         patronymic:                         Отчество
@@ -164,3 +169,4 @@ ru:
         clinical_record_id:                 Медицинская карта
         medical_policy_id:                  Медицинский полис
         passport_id:                        Паспорт
+        site_id:                            Участок

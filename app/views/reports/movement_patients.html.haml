@@ -1,0 +1,48 @@
+.container
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = link_to 'Возраста пациентов', reports_path
+
+      = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-12 text-center', role: :form } do |f|
+        = datepicker_field(f, :begin_date, label: false, icon: false, placeholder: 'c', value: params[:begin_date])
+        = datepicker_field(f, :end_date, label: false, icon: false, placeholder: 'по', value: params[:end_date])
+        = f.input :type, label: false, collection: ['Прикрепленные' , 'Открепленные'], value: params[:type]
+        .inline
+          = submit_tag 'Поиск', class: 'btn btn-primary'
+          = link_to 'Сбросить',  place_work_report_reports_path, class: 'btn btn-default'
+
+      %br/
+      %br/
+      %table.table.table-striped
+        %thead
+          %tr
+            %th.text-center № П/П
+            %th.text-center= Patient.human_attribute_name(:clinical_record_id)
+            %th.text-center= Patient.human_attribute_name(:site_id)
+            %th.text-center= Patient.human_attribute_name(:full_name)
+            %th.text-center= Patient.human_attribute_name(:birthday)
+            - if params[:type] == 'true'
+              %th.text-center= ClinicalRecord.human_attribute_name(:attachment_date)
+            -else
+              %th.text-center= ClinicalRecord.human_attribute_name(:detachment_date)
+            %th.text-center= Patient.human_attribute_name(:place_work_id)
+
+
+        %tbody
+          - @patients.each do |patient, report|
+            %tr
+              %td.text-center= report[:id]
+              %td.text-center= report[:clinical_record]
+              %td.text-center= report[:site]
+              %td.text-center= report[:full_name]
+              %td.text-center= l(report[:birthday], format: :default)
+              - if params[:type] == 'true'
+                %td.text-center= l(report[:attachment_date], format: :default)
+              - else
+                %td.text-center= l(report[:detachment_date], format: :default)
+              %td.text-center= report[:place_work]
+          %tr
+            %th.text-right.th-popover{ colspan: 6 }  Пациентов на начало периода:
+            -# %th.text-center= 
