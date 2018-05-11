@@ -116,7 +116,7 @@ gem 'jquery-ui-rails', '~> 5.0.5'
 gem 'js-cookie-rails', '~> 2.0.0.pre.beta.1.0'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '>= 2.2.1'
+gem 'turbolinks', '~> 2.5.3'
 
 # Solves the Turbolinks problem with binds elements https://github.com/kossnocorp/jquery.turbolinks
 gem 'jquery-turbolinks'
