@@ -10,15 +10,15 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
 }
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -49,8 +49,8 @@ select {
   outline: none;
 }
 a:focus,
-button:focus { 
-  outline: none; 
+button:focus {
+  outline: none;
 }
 button::-moz-focus-inner {
   border: 0;
@@ -128,7 +128,7 @@ textarea
   -ms-transition: all 0.30s ease-in-out;
   -o-transition: all 0.30s ease-in-out;
   border: 1px solid #BBB;
-  -webkit-border-radius: 5px; 
+  -webkit-border-radius: 5px;
   -moz-border-radius: 12px;
   border-radius: 3px;
   outline: none;
@@ -199,17 +199,17 @@ span.white {
   border-bottom: 1px solid #DDD;
 }
 .rotate0 {
-  -ms-transform: rotate(0deg); 
-  -webkit-transform: rotate(0deg); 
-  -o-transform: rotate(0deg); 
-  -moz-transform: rotate(0deg); 
+  -ms-transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
   transform: rotate(0deg);
 }
 .rotate180 {
-  -ms-transform: rotate(180deg); 
-  -webkit-transform: rotate(180deg); 
-  -o-transform: rotate(180deg); 
-  -moz-transform: rotate(180deg); 
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -330,7 +330,7 @@ span.white {
       vertical-align: middle;
     }
   }
-  &.activelink { 
+  &.activelink {
     * {
       cursor: pointer;
     }
@@ -391,7 +391,7 @@ span.white {
       height: 100%;
       list-style: none;
       position: relative;
-      overflow-x: hidden; 
+      overflow-x: hidden;
       li {
         a {
           text-decoration: none;
@@ -423,7 +423,7 @@ span.white {
 .person_surname {
   z-index: 9;
 }
-.table-writable { 
+.table-writable {
   thead {
     tr {
       th {
@@ -435,7 +435,7 @@ span.white {
   }
   thead.text-left {
     tr {
-      th {  
+      th {
         text-align: left
       }
     }
@@ -490,7 +490,7 @@ span.white {
     left: 0;
     height: 100%;
     line-height: 1;
-    padding: 16px $input-side-padding; 
+    padding: 16px $input-side-padding;
     pointer-events: none;
     position: absolute;
     width: 40px;
@@ -524,27 +524,27 @@ span.white {
 @media (max-width: 767px) {
   .charts {
     width: 600px;
-  }  
+  }
 }
 @media (min-width: 768px) and (max-width: 991px) {
   .charts {
     width: 750px;
-  }  
+  }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
   .charts {
     width: 900px;
-  }  
+  }
 }
 @media (min-width: 1200px) and (max-width: 1399px) {
   .charts {
     width: 780px;
-  }  
+  }
 }
 @media (min-width: 1400px) {
   .charts {
     width: 867px;
-  }  
+  }
 }
 .charts {
   display: block;
@@ -623,7 +623,7 @@ span.white {
     height: auto;
     font-size: 20px;
     letter-spacing: 0;
-  } 
+  }
 }
 .form-inline-3 {
   > .form-control,
@@ -644,7 +644,7 @@ span.white {
   > .form-group,
   > .inline {
     width: 19.9%;
-  } 
+  }
 }
 .form-inline-search {
   > .form-control {
@@ -693,13 +693,13 @@ span.white {
 }
 .graph-tooltip {
   .tooltip-arrow {
-    height: 0; 
+    height: 0;
     border-bottom: 10px solid transparent;
     border-left: 10px solid #FFF;
     border-top: 10px solid transparent;
     position: absolute;
     top: 4px;
-    width: 0; 
+    width: 0;
   }
   .tooltip-value {
     display: block;
