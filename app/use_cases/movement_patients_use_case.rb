@@ -12,6 +12,29 @@ class MovementPatientsUseCase
     @end_date   = end_date.presence
   end
 
+  def start_period
+    patients = Patient.includes(:clinical_record).references(:clinical_record)
+    period   = patients.where("clinical_records.attachment_date < ?  AND
+                               clinical_records.detachment_date IS NULL",
+                               @begin_date).size
+  end
+
+  def attach_end_period
+    patients = Patient.includes(:clinical_record).references(:clinical_record)
+    period   = patients.where("clinical_records.attachment_date >= ? AND
+                               clinical_records.attachment_date <= ? AND
+                               clinical_records.detachment_date IS NULL",
+                               @begin_date, @end_date).size
+  end
+
+  def detach_end_period
+    patients = Patient.includes(:clinical_record).references(:clinical_record)
+    period   = patients.where("clinical_records.detachment_date >= ? AND
+                               clinical_records.detachment_date <= ? ",
+                               @begin_date, @end_date).size
+  end
+
+
   def perform
     if @type == 'true'
 
