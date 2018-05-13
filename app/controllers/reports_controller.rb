@@ -4,7 +4,12 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
+  end
 
+  def parent_patient
+    children = params[:place_work].present? ? Patient.all : []
+    usecase = ParentPatientUseCase.new(children, place_work: params[:place_work])
+    @children = usecase.perform
   end
 
   def movement_patients

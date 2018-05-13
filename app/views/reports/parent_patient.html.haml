@@ -1,0 +1,57 @@
+- number = 1
+.container
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = link_to 'Дети по месту службы родителей', reports_path
+
+      = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-3 text-center', role: :form } do |f|
+        = f.input :place_work, label: false, collection: place_work_for_select, value: params[:place_work]
+        .inline
+          = submit_tag 'Поиск', class: 'btn btn-primary'
+
+      %br/
+      %br/
+      %table.table.table-striped
+        %thead
+          %tr
+            %th.text-center.bold.center.th-popover{ colspan: 2 } Младше 1-го года
+            %th.text-center.th-popover{ colspan: 2 } от 1-го до 3-х лет
+            %th.text-center.th-popover{ colspan: 2 } от 3-х до 6-и лет
+            %th.text-center.th-popover{ colspan: 2 } от 6-ти до 15-ти лет
+            %th.text-center.th-popover{ colspan: 2 } от 15-ти до 17-ти лет
+            %th.text-center.th-popover{ colspan: 2 } от 17-ти до 18-ти лет
+            %th.text-center.th-popover{ colspan: 2 } старше 18-ти лет
+          %tr
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+        %tbody
+          -@children.each do |company, report|
+            %tr
+              %td.text-center= report[:boys_u1]
+              %td.text-center= report[:girls_u1]
+              %td.text-center= report[:boys_u3]
+              %td.text-center= report[:girls_u3]
+              %td.text-center= report[:boys_u6]
+              %td.text-center= report[:girls_u6]
+              %td.text-center= report[:boys_u15]
+              %td.text-center= report[:girls_u15]
+              %td.text-center= report[:boys_u17]
+              %td.text-center= report[:girls_u17]
+              %td.text-center= report[:boys_u18]
+              %td.text-center= report[:girls_u18]
+              %td.text-center= report[:boys_o18]
+              %td.text-center= report[:girls_o18]

@@ -14,4 +14,7 @@ module ReportsHelper
     q
   end
 
+  def place_work_for_select
+    result = PlaceWork.all.map {|p| [p.job_name, p.id]}
+  end
 end

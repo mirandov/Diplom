@@ -5,11 +5,6 @@
         .header-field-title
           = link_to 'Возраста пациентов', reports_path
 
-      = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-3 text-center', role: :form } do |f|
-        .inline
-          = submit_tag 'Поиск', class: 'btn btn-primary'
-
-      %br/
       %br/
       %table.table.table-striped
         %thead
@@ -25,8 +20,6 @@
             %th.text-center.th-popover Девочки
             %th.text-center.th-popover Мальчики
             %th.text-center.th-popover Девочки
-
-
         %tbody
           - @companies.each do |company, report|
             %tr

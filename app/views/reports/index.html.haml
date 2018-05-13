@@ -3,5 +3,5 @@
     = main_menu_button_for 'reports', 'Данные о возрасте пацеинтов'
   .main-menu-button-wrapper{id: 'to-patients', data: {link: movement_patients_reports_path}}
     = main_menu_button_for 'reports', 'Движение пациентов'
-
--# = link_to 'New Report', new_report_path
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: parent_patient_reports_path}}
+    = main_menu_button_for 'reports', 'Количество детей по месту службы родителей'
