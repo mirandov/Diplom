@@ -2,14 +2,11 @@ class PlaceWorkUseCase
   include UseCase
 
   attr_accessor :companies, :data
-  attr_reader :begin_date, :end_date
+
 
   def initialize(companies, begin_date: nil, end_date: nil)
     @companies  = companies
     @data       = {}
-    @begin_date = begin_date || "01.07.2016"
-    @end_date   = end_date.presence
-
   end
 
   def perform
@@ -21,14 +18,11 @@ class PlaceWorkUseCase
       older_female   = 0
       under_female   = 0
       older_male     = 0
-      patients      = []
 
-      all = Patient.where(place_work_id: company.id)
-      all.each do |patient|
-        if (patient.clinical_record.last_registration_date > Date.parse(@begin_date)) && (patient.clinical_record.last_registration_date < Date.parse(@end_date))
-          patients << patient
-        end
-      end
+      all = Patient.includes(:clinical_record).references(:clinical_record)
+      patients   = all.where("clinical_records.detachment_date IS NULL AND
+                            patients.place_work_id = ?",
+                            company.id)
 
       years_15 = Date.today - 15.year
 

@@ -6,4 +6,12 @@ module ReportsHelper
     end
     all
   end
+
+  def start_period(patients)
+    patients.each do |patient, report|
+      q = patient[1][:start_period]
+    end
+    q
+  end
+
 end

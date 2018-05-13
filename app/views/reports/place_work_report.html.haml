@@ -6,11 +6,8 @@
           = link_to 'Возраста пациентов', reports_path
 
       = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-3 text-center', role: :form } do |f|
-        = datepicker_field(f, :begin_date, label: false, icon: false, placeholder: 'c', value: params[:begin_date])
-        = datepicker_field(f, :end_date, label: false, icon: false, placeholder: 'по', value: params[:end_date])
         .inline
           = submit_tag 'Поиск', class: 'btn btn-primary'
-          = link_to 'Сбросить',  place_work_report_reports_path, class: 'btn btn-default'
 
       %br/
       %br/

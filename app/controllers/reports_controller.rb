@@ -19,8 +19,8 @@ class ReportsController < ApplicationController
   end
 
   def place_work_report
-    place_works = params[:begin_date].present? && params[:end_date].present? ? PlaceWork.all : []
-    usecase     = PlaceWorkUseCase.new(place_works, begin_date: params[:begin_date], end_date: params[:end_date])
+    place_works = PlaceWork.all
+    usecase     = PlaceWorkUseCase.new(place_works)
     @companies  = usecase.perform
   end
 

@@ -1,3 +1,4 @@
+- number = 1
 .container
   .col-md-12
     .row
@@ -43,6 +44,18 @@
               - else
                 %td.text-center= l(report[:detachment_date], format: :default)
               %td.text-center= report[:place_work]
-          %tr
-            %th.text-right.th-popover{ colspan: 6 }  Пациентов на начало периода:
-            -# %th.text-center= 
+          - @patients.each do |patient, report|
+            - if number == 1
+              %tr
+                %th.text-right.th-popover{ colspan: 6 }  Пациентов на начало периода:
+                %th.text-center= report[:start_period]
+              %tr
+                %th.text-right.th-popover{ colspan: 6 }  Прикрепленные пациенты за период:
+                %th.text-center= report[:attach_to_period]
+              %tr
+                %th.text-right.th-popover{ colspan: 6 }  Открепленные пациенты за период:
+                %th.text-center= report[:detach_to_period]
+              %tr
+                %th.text-right.th-popover{ colspan: 6 }  Пациентов на конец периода:
+                %th.text-center= report[:end_period]
+              - number += 1
