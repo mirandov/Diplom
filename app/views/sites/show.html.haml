@@ -1,18 +1,30 @@
-%p#notice= notice
+.col-md-8.col-md-offset-2
+  .panel-group{ role: 'tablist', aria: { multiselectable: true } }
+    .panel.panel-default
+      .panel-heading#headingOne{ role: 'tab' }
+        .panel-title
+          = link_to '#collapseOne', role: 'button', data: { toggle: 'collapse' }, aria: { expanded: true, controls: '#collapseOne' } do
+            %h4.text-center= 'Описание'
+      .panel-collapse.collapse.in#collapseOne{ role: 'tabpanel', aria: { labelledby: 'headingOne' } }
+        .panel-body
+          %table.table.small.table-striped.table-narrow-column
+            %tbody
+              %tr
+                %th= "#{ Site.human_attribute_name(:site_name)}:"
+                %td= @site.site_name
+              %tr
+                %th= "#{ Site.human_attribute_name(:short_name)}:"
+                %td= @site.short_name
+              %tr
+                %th= "#{ Site.human_attribute_name(:region)}:"
+                %td= @site.region
+              %tr
+                %th= "#{ Site.human_attribute_name(:information)}:"
+                %td= @site.information
 
-%p
-  %b Site name:
-  = @site.site_name
-%p
-  %b Short name:
-  = @site.short_name
-%p
-  %b Region:
-  = @site.region
-%p
-  %b Information:
-  = @site.information
-
-= link_to 'Edit', edit_site_path(@site)
-\|
-= link_to 'Back', sites_path
+  .text-center
+    %br/
+    %br/
+    = link_to 'К кспику участков', sites_path, class: 'btn btn-primary btn-sm'
+    = link_to 'Изменить', edit_site_path(@site), class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
+    = link_to 'Удалить', @place_sitework, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' }

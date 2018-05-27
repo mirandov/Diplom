@@ -52,8 +52,11 @@
                 %th= "#{ Patient.human_attribute_name(:place_work_id)}:"
                 %td=  @patient.place_work.nil? ? "Отсутствует" : @patient.place_work.job_name
               %tr
-                %th= "#{ Patient.human_attribute_name(:address_id)}:"
-                %td=  full_address(@patient.address)
+                %th= "#{ Patient.human_attribute_name(:address_live)}:"
+                %td=  @patient.address_live
+              %tr
+                %th= "#{ Patient.human_attribute_name(:address_reg)}:"
+                %td=  @patient.address_reg
               %tr
                 %th= "#{ Patient.human_attribute_name(:clinical_record_id)}:"
                 %td= full_record_number(@patient.clinical_record)

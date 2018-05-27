@@ -84,6 +84,8 @@ class PatientsController < ApplicationController
         :mobile_phone_number,
         :work_phone_number,
         :rank,
+        :address_live,
+        :address_reg,
         :disability,
         :certificate_of_deceased_parent,
         :certificate_of_nuclear_power_plant,
@@ -102,14 +104,7 @@ class PatientsController < ApplicationController
           :id,
           :mip_number,
           :patient_id,
-          :address_id,
-          :address_attributes => [
-            :id,
-            :site_id,
-            :city_id,
-            :street_id,
-            :house_id
-          ]
+          :address_id
         ],
         :clinical_record_attributes => [
           :id,
@@ -122,13 +117,6 @@ class PatientsController < ApplicationController
           :patient_id,
           :reason_for_detachment,
           :site_id
-        ],
-        :address_attributes => [
-          :id,
-          :site_id,
-          :city_id,
-          :street_id,
-          :house_id
         ]
       )
     end

@@ -1,25 +1,19 @@
-%h1 Listing place_works
+%section#users-list
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = 'Места служб'
+          = link_to '+', new_place_work_path, class: 'btn btn-primary btn-sm', title: 'Добавить новое место службы'
 
-%table
-  %thead
-    %tr
-      %th Job name
-      %th Short name
-      %th Information
-      %th
-      %th
-      %th
+      %table.table.table-hover
+        %thead
+          %tr
+            %th.text-center= PlaceWork.human_attribute_name(:job_name)
+            %th.text-center= PlaceWork.human_attribute_name(:information)
 
-  %tbody
-    - @place_works.each do |place_work|
-      %tr
-        %td= place_work.job_name
-        %td= place_work.short_name
-        %td= place_work.information
-        %td= link_to 'Show', place_work
-        %td= link_to 'Edit', edit_place_work_path(place_work)
-        %td= link_to 'Destroy', place_work, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Place work', new_place_work_path
+        %tbody
+          - @place_works.each do |work|
+            %tr.tr-href{ data: { link: place_work_path(work.id) } }
+              %td.text-center= work.job_name
+              %td.text-center= work.information

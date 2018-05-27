@@ -1,4 +1,14 @@
 ru:
+  controllers:
+    sites:
+      new:    Добавление нового участка
+      index:  Участки
+      edit:   Измнение информации
+    clinical_records:
+      index:     Список медицинских карт пациентов
+    place_works:
+      new:   Новое место службы
+      edit:  Редактирование информации
   date:
     yday:        "Вчера"
     before_yday: "Позавчера"
@@ -114,6 +124,7 @@ ru:
         other: ! '%{count} секунды'
   app:
     name: MedStatReg
+
     patients:
       index: Список пациентов
       edit:  Редактирование пациентов
@@ -130,15 +141,6 @@ ru:
           "false": Открепленные
       medical_policy:
         mip_number: Номер полиса
-      clinical_record:
-        record_number:          Номер карты
-        prefix:                 Префикс
-        suffix:                 Суффикс
-        attachment_date:        Дата прикрепления
-        last_registration_date: Дата последней  регистрации
-        detachment_date:        Дата открепления
-        reason_for_detachment:  Причина открепления
-        site_id:                Участок
       passport:
         serial_and_number: Серия и номер паспорта
         issue_date:        Дата выдачи
@@ -149,7 +151,28 @@ ru:
         city_id:          Город
         street_id:        Улица
         house_id:         Дом
+      place_work:
+        job_name:        Название
+        short_name:      Сокращенное название
+        information:     Информация
+      clinical_record:
+        patient:                Пациент
+        record_number:           Номер карты
+        prefix:                  Префикс
+        suffix:                  Суффикс
+        attachment_date:         Дата прикрепления
+        last_registration_date:  Дата последней регистрации
+        detachment_date:         Дата открепления
+        reason_for_detachment:   Причина открепления
+        site:                    Участок
+      site:
+        site_name:               Название участка
+        short_name:              Сокращнное название
+        region:                  Регион
+        information:             Информация
       patient:
+        address_reg:                        Адрес регистрации
+        address_live:                       Адрес проживания
         full_name:                          Ф.И.О
         surname:                            Фамилия
         name:                               Имя

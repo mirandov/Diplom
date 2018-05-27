@@ -1,30 +1,40 @@
-%p#notice= notice
+.col-md-8.col-md-offset-2
+  .panel-group{ role: 'tablist', aria: { multiselectable: true } }
+    .panel.panel-default
+      .panel-heading#headingOne{ role: 'tab' }
+        .panel-title
+          = link_to '#collapseOne', role: 'button', data: { toggle: 'collapse' }, aria: { expanded: true, controls: '#collapseOne' } do
+            %h4.text-center= 'Медицинская карта'
+      .panel-collapse.collapse.in#collapseOne{ role: 'tabpanel', aria: { labelledby: 'headingOne' } }
+        .panel-body
+          %table.table.small.table-striped.table-narrow-column
+            %tbody
+              %tr
+                %th= "#{ ClinicalRecord.human_attribute_name(:record_number)}:"
+                %td= full_record_number(@clinical_record)
+              %tr
+                %th= "#{ ClinicalRecord.human_attribute_name(:patient)}:"
+                %td= linked_list(@clinical_record)
+              %tr
+                %th= "#{ ClinicalRecord.human_attribute_name(:attachment_date)}:"
+                %td= @clinical_record.attachment_date
+              %tr
+                %th= "#{ ClinicalRecord.human_attribute_name(:last_registration_date)}:"
+                %td= @clinical_record.last_registration_date
+              -if @clinical_record.detachment_date.present?
+                %tr
+                  %th= "#{ ClinicalRecord.human_attribute_name(:detachment_date)}:"
+                  %td= @clinical_record.detachment_date
+                %tr
+                  %th= "#{ ClinicalRecord.human_attribute_name(:reason_for_detachment)}:"
+                  %td= @clinical_record.reason_for_detachment
+              %tr
+                %th= "#{ ClinicalRecord.human_attribute_name(:site)}:"
+                %td= @clinical_record.site.site_name
 
-%p
-  %b Record number:
-  = @clinical_record.record_number
-%p
-  %b Prefix:
-  = @clinical_record.prefix
-%p
-  %b Suffix:
-  = @clinical_record.suffix
-%p
-  %b Attachment date:
-  = @clinical_record.attachment_date
-%p
-  %b Last registration date:
-  = @clinical_record.last_registration_date
-%p
-  %b Detachment date:
-  = @clinical_record.detachment_date
-%p
-  %b Reason for detachment:
-  = @clinical_record.reason_for_detachment
-%p
-  %b Site:
-  = @clinical_record.site
-
-= link_to 'Edit', edit_clinical_record_path(@clinical_record)
-\|
-= link_to 'Back', clinical_records_path
+  .text-center
+    %br/
+    %br/
+    = link_to 'К кспику служб', clinical_records_path, class: 'btn btn-primary btn-sm'
+    = link_to 'Изменить', edit_clinical_record_path(@clinical_record), class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
+    = link_to 'Удалить', @clinical_record, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' }

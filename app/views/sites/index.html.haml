@@ -1,27 +1,22 @@
-%h1 Listing sites
+%section#users-list
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = page_header
+          = link_to '+', new_site_path, class: 'btn btn-primary btn-sm', title: 'Добавить новый участок'
 
-%table
-  %thead
-    %tr
-      %th Site name
-      %th Short name
-      %th Region
-      %th Information
-      %th
-      %th
-      %th
+      %table.table.table-hover
+        %thead
+          %tr
+            %th.text-center= Site.human_attribute_name(:site_name)
+            %th.text-center= Site.human_attribute_name(:region)
+            %th.text-center= Site.human_attribute_name(:information)
 
-  %tbody
-    - @sites.each do |site|
-      %tr
-        %td= site.site_name
-        %td= site.short_name
-        %td= site.region
-        %td= site.information
-        %td= link_to 'Show', site
-        %td= link_to 'Edit', edit_site_path(site)
-        %td= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Site', new_site_path
+        %tbody
+          - @sites.each do |site|
+            %tr.tr-href{ data: { link: site_path(site.id) } }
+              %td.text-center= site.site_name
+              %td.text-center= site.region
+              %td.text-center= site.information

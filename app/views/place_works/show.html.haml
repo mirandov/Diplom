@@ -1,15 +1,27 @@
-%p#notice= notice
+.col-md-8.col-md-offset-2
+  .panel-group{ role: 'tablist', aria: { multiselectable: true } }
+    .panel.panel-default
+      .panel-heading#headingOne{ role: 'tab' }
+        .panel-title
+          = link_to '#collapseOne', role: 'button', data: { toggle: 'collapse' }, aria: { expanded: true, controls: '#collapseOne' } do
+            %h4.text-center= 'Описание'
+      .panel-collapse.collapse.in#collapseOne{ role: 'tabpanel', aria: { labelledby: 'headingOne' } }
+        .panel-body
+          %table.table.small.table-striped.table-narrow-column
+            %tbody
+              %tr
+                %th= "#{ PlaceWork.human_attribute_name(:job_name)}:"
+                %td= @place_work.job_name
+              %tr
+                %th= "#{ PlaceWork.human_attribute_name(:short_name)}:"
+                %td= @place_work.short_name
+              %tr
+                %th= "#{ PlaceWork.human_attribute_name(:information)}:"
+                %td= @place_work.information
 
-%p
-  %b Job name:
-  = @place_work.job_name
-%p
-  %b Short name:
-  = @place_work.short_name
-%p
-  %b Information:
-  = @place_work.information
-
-= link_to 'Edit', edit_place_work_path(@place_work)
-\|
-= link_to 'Back', place_works_path
+  .text-center
+    %br/
+    %br/
+    = link_to 'К кспику служб', place_works_path, class: 'btn btn-primary btn-sm'
+    = link_to 'Изменить', edit_place_work_path(@place_work), class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
+    = link_to 'Удалить', @place_work, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' }

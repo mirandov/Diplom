@@ -1,4 +1,5 @@
 class CabinetsController < ApplicationController
+  before_filter :authenticate_user!
   def index
     # render '/app/views/cabinets/index'
   end

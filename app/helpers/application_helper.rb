@@ -81,4 +81,9 @@ module ApplicationHelper
    end
  end
 
+ def page_header
+    path = Rails.application.routes.recognize_path(request.env['PATH_INFO'])
+    t "controllers.#{path[:controller]}.#{path[:action]}"
+  end
+
 end

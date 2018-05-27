@@ -18,12 +18,8 @@
     = f.input :certificate_of_nuclear_power_plant
     = f.input :inila
     = f.input :place_work_id , collection: place_work_for_select, include_blank: 'Выберите место службы'
-    =f.simple_fields_for :address, @address do |address_form|
-      %h3= "Адрес проживания"
-      = address_form.input :site_id, collection: site_for_select, include_blank: 'Выберите участок'
-      = address_form.input :city_id,  collection: city_for_select, include_blank: 'Выберите город'
-      = address_form.input :street_id, collection: street_for_select, include_blank: 'Выберите улицу'
-      = address_form.input :house_id, collection: house_for_select, include_blank: 'Выберите дом'
+    = f.input :address_live
+    = f.input :address_reg
 
     %br/
     =f.simple_fields_for  :passport, @passport do |passport_form|

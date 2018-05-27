@@ -1,35 +1,30 @@
-%h1 Listing clinical_records
+%section#users-list
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = page_header
 
-%table
-  %thead
-    %tr
-      %th Record number
-      %th Prefix
-      %th Suffix
-      %th Attachment date
-      %th Last registration date
-      %th Detachment date
-      %th Reason for detachment
-      %th Site
-      %th
-      %th
-      %th
 
-  %tbody
-    - @clinical_records.each do |clinical_record|
-      %tr
-        %td= clinical_record.record_number
-        %td= clinical_record.prefix
-        %td= clinical_record.suffix
-        %td= clinical_record.attachment_date
-        %td= clinical_record.last_registration_date
-        %td= clinical_record.detachment_date
-        %td= clinical_record.reason_for_detachment
-        %td= clinical_record.site
-        %td= link_to 'Show', clinical_record
-        %td= link_to 'Edit', edit_clinical_record_path(clinical_record)
-        %td= link_to 'Destroy', clinical_record, method: :delete, data: { confirm: 'Are you sure?' }
+      %table.table.table-hover
+        %thead
+          %tr
+            %th.text-center= ClinicalRecord.human_attribute_name(:record_number)
+            %th.text-center= ClinicalRecord.human_attribute_name(:attachment_date)
+            %th.text-center= ClinicalRecord.human_attribute_name(:last_registration_date)
+            %th.text-center= ClinicalRecord.human_attribute_name(:detachment_date)
+            %th.text-center= ClinicalRecord.human_attribute_name(:reason_for_detachment)
+            %th.text-center= ClinicalRecord.human_attribute_name(:patient)
+            %th.text-center= ClinicalRecord.human_attribute_name(:site)
 
-%br
 
-= link_to 'New Clinical record', new_clinical_record_path
+        %tbody
+          - @clinical_records.each do |clinical_record|
+            %tr.tr-href{ data: { link: clinical_record_path(clinical_record.id) } }
+              %td.text-center= full_record_number(clinical_record)
+              %td.text-center= l(clinical_record.attachment_date, format: :default)
+              %td.text-center= l(clinical_record.last_registration_date, format: :default)
+              %td.text-center= clinical_record.detachment_date.present? ? l(clinical_record.detachment_date, format: :default) : 'Пациент не открепился'
+              %td.text-center= clinical_record.reason_for_detachment.present? ? clinical_record.reason_for_detachment : 'Пациент не открепился'
+              %td.text-center= full_name(clinical_record)
+              %td.text-center= clinical_record.site.site_name

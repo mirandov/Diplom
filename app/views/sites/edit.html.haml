@@ -1,7 +1,9 @@
-%h1 Editing site
+.section
+  .container
+    .col-md-12
+      .row
+        .header-field
+          .header-field-title
+            = page_header
 
-= render 'form'
-
-= link_to 'Show', @site
-\|
-= link_to 'Back', sites_path
+        = render 'form'
