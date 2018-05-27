@@ -1,25 +1,15 @@
-= form_for @doctor do |f|
-  - if @doctor.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@doctor.errors.count, "error")} prohibited this doctor from being saved:"
-      %ul
-        - @doctor.errors.full_messages.each do |message|
-          %li= message
+= simple_form_for @doctor, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |f|
 
-  .field
-    = f.label :surname
-    = f.text_field :surname
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :patronymic
-    = f.text_field :patronymic
-  .field
-    = f.label :personnel_number
-    = f.text_field :personnel_number
-  .field
-    = f.label :information
-    = f.text_area :information
-  .actions
-    = f.submit 'Save'
+    = f.input :surname
+
+    = f.input :name
+
+    = f.input :patronymic
+
+    = f.input :personnel_number
+
+    = f.input :information
+    %br/
+    .form-actions
+    = link_to "Назад", Doctor,  class: 'btn btn-primary'
+    = f.submit 'Сохранить', class: 'btn btn-primary'

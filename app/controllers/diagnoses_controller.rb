@@ -15,6 +15,7 @@ class DiagnosesController < ApplicationController
   # GET /diagnoses/new
   def new
     @diagnosis = Diagnosis.new
+    $patient =  params[:patient]
   end
 
   # GET /diagnoses/1/edit
@@ -25,10 +26,10 @@ class DiagnosesController < ApplicationController
   # POST /diagnoses.json
   def create
     @diagnosis = Diagnosis.new(diagnosis_params)
-
+    @diagnosis.patient_id = $patient
     respond_to do |format|
       if @diagnosis.save
-        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully created.' }
+        format.html { redirect_to patient_path(id: @diagnosis.patient_id), notice: 'Диагноз успешно добавлен' }
         format.json { render :show, status: :created, location: @diagnosis }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class DiagnosesController < ApplicationController
   def update
     respond_to do |format|
       if @diagnosis.update(diagnosis_params)
-        format.html { redirect_to @diagnosis, notice: 'Diagnosis was successfully updated.' }
+        format.html { redirect_to @diagnosis, notice: 'Диагноз изменён' }
         format.json { render :show, status: :ok, location: @diagnosis }
       else
         format.html { render :edit }
@@ -69,6 +70,6 @@ class DiagnosesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def diagnosis_params
-      params.require(:diagnosis).permit(:resolution_date, :patient_id, :position_id)
+      params.require(:diagnosis).permit(:resolution_date, :patient_id, :position_id, :complictation_id, :doctor_id, :class_disease_id)
     end
 end

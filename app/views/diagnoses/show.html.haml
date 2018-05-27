@@ -1,15 +1,29 @@
-%p#notice= notice
+.col-md-8.col-md-offset-2
+  .panel-group{ role: 'tablist', aria: { multiselectable: true } }
+    .panel.panel-default
+      .panel-heading#headingOne{ role: 'tab' }
+        .panel-title
+          = link_to '#collapseOne', role: 'button', data: { toggle: 'collapse' }, aria: { expanded: true, controls: '#collapseOne' } do
+            %h4.text-center= 'Описание'
+      .panel-collapse.collapse.in#collapseOne{ role: 'tabpanel', aria: { labelledby: 'headingOne' } }
+        .panel-body
+          %table.table.small.table-striped.table-narrow-column
+            %tbody
+              %tr
+                %th= "#{ Diagnosis.human_attribute_name(:patient_id)}:"
+                %td= full_name(@diagnosis.patient)
+              %tr
+                %th= "#{ Diagnosis.human_attribute_name(:class_disease)}:"
+                %td= @diagnosis.class_disease.name
+              %tr
+                %th= "#{ Diagnosis.human_attribute_name(:complictation)}:"
+                %td= @diagnosis.complictation.name
+              %tr
+                %th= "#{ Diagnosis.human_attribute_name(:resolution_date)}:"
+                %td= l(@diagnosis.resolution_date, format: :default)
 
-%p
-  %b Resolution date:
-  = @diagnosis.resolution_date
-%p
-  %b Patient:
-  = @diagnosis.patient
-%p
-  %b Position:
-  = @diagnosis.position
-
-= link_to 'Edit', edit_diagnosis_path(@diagnosis)
-\|
-= link_to 'Back', diagnoses_path
+  .text-center
+    %br/
+    %br/
+    = link_to 'Вернуться к пациенту', patient_path(@diagnosis.patient.id), class: 'btn btn-primary btn-sm'
+    = link_to 'Изменить', edit_diagnosis_path(@diagnosis.id), class: 'btn btn-primary btn-sm'

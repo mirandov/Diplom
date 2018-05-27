@@ -1,5 +1,10 @@
 ru:
   controllers:
+    doctors:
+      new:  Регистраци нового врача
+    diagnoses:
+      edit: Редактирование диагноза
+      new:  Добавление диагноза
     sites:
       new:    Добавление нового участка
       index:  Участки
@@ -170,6 +175,18 @@ ru:
         short_name:              Сокращнное название
         region:                  Регион
         information:             Информация
+      doctor:
+        surname:                            Фамилия
+        name:                               Имя
+        patronymic:                         Отчество
+        personnel_number:                   Табельный номер
+        information:                        Информация
+      diagnosis:
+        doctor_id:               Врач
+        patient_id:              Пациент
+        resolution_date:         Дата постановления диагноза
+        class_disease:           Класс заболевания
+        complictation:           Заболевание
       patient:
         address_reg:                        Адрес регистрации
         address_live:                       Адрес проживания

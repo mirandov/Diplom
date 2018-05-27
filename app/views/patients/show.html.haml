@@ -66,9 +66,32 @@
               %tr
                 %th= "#{ Patient.human_attribute_name(:passport_id)}:"
                 %td=  @patient.passport.serial_and_number
+      %br/
+      %br/
+      
+      %h4.text-center Заболевания пациента
+      %table.table.table-hover
+        %thead
+          %tr
+            %th= Diagnosis.human_attribute_name(:class_disease)
+            %th= Diagnosis.human_attribute_name(:complictation)
+            %th= Diagnosis.human_attribute_name(:resolution_date)
+            %th= Diagnosis.human_attribute_name(:doctor_id)
+
+
+
+        %tbody
+          - @patient.diagnoses.each do |d|
+            %tr.tr-href{ data: { link: diagnosis_path(d.id) }, back_url: full_path }
+              %td= d.class_disease.name
+              %td= d.complictation.name
+              %td= l(d.resolution_date, format: :default)
+              %td= d.doctor.present? ? "qq" : "qq"
+
   .text-center
     %br/
     %br/
+    = link_to 'Добавить диагноз', new_diagnosis_path(patient: @patient.id), class: 'btn btn-warning btn-sm', title: 'Добавить диагноз'
     = link_to 'К кспику пациентов', patients_path, class: 'btn btn-primary btn-sm'
     = link_to 'Изменить', edit_patient_path(@patient), class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
     = link_to 'Удалить', @patient, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?' }

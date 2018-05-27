@@ -1,19 +1,21 @@
-= form_for @diagnosis do |f|
-  - if @diagnosis.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@diagnosis.errors.count, "error")} prohibited this diagnosis from being saved:"
-      %ul
-        - @diagnosis.errors.full_messages.each do |message|
-          %li= message
+- edit ||= false
+= simple_form_for @diagnosis, html: { class: 'form-horizontal col-md-6 col-md-offset-3 text-center', role: 'form' } do |f|
 
-  .field
-    = f.label :resolution_date
-    = f.date_select :resolution_date
-  .field
-    = f.label :patient
-    = f.text_field :patient
-  .field
-    = f.label :position
-    = f.text_field :position
-  .actions
-    = f.submit 'Save'
+
+
+  = f.input :doctor_id, collection: doctor_for_select
+
+
+  = datepicker_field(f, :resolution_date)
+
+  = f.association :class_disease
+
+  = f.association :complictation
+
+
+  .form-actions
+    -if edit == true
+      = link_to "Назад", diagnosis_path(@diagnosis.id),  class: 'btn btn-primary'
+    -else
+      = link_to "Назад", _back_url,  class: 'btn btn-primary'
+    = f.submit 'Сохранить', class: 'btn btn-primary'

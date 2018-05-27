@@ -1,21 +1,30 @@
-%p#notice= notice
-
-%p
-  %b Surname:
-  = @doctor.surname
-%p
-  %b Name:
-  = @doctor.name
-%p
-  %b Patronymic:
-  = @doctor.patronymic
-%p
-  %b Personnel number:
-  = @doctor.personnel_number
-%p
-  %b Information:
-  = @doctor.information
-
-= link_to 'Edit', edit_doctor_path(@doctor)
-\|
-= link_to 'Back', doctors_path
+.col-md-8.col-md-offset-2
+  .panel-group{ role: 'tablist', aria: { multiselectable: true } }
+    .panel.panel-default
+      .panel-heading#headingOne{ role: 'tab' }
+        .panel-title
+          = link_to '#collapseOne', role: 'button', data: { toggle: 'collapse' }, aria: { expanded: true, controls: '#collapseOne' } do
+            %h4.text-center= 'Описание'
+      .panel-collapse.collapse.in#collapseOne{ role: 'tabpanel', aria: { labelledby: 'headingOne' } }
+        .panel-body
+          %table.table.small.table-striped.table-narrow-column
+            %tbody
+              %tr
+                %th= "#{ Doctor.human_attribute_name(:surname)}:"
+                %td= @doctor.surname
+              %tr
+                %th= "#{ Doctor.human_attribute_name(:name)}:"
+                %td= @doctor.name
+              %tr
+                %th= "#{ Doctor.human_attribute_name(:patronymic)}:"
+                %td= @doctor.patronymic
+              %tr
+                %th= "#{ Doctor.human_attribute_name(:personnel_number)}:"
+                %td= @doctor.personnel_number
+              %tr
+                %th= "#{ Doctor.human_attribute_name(:information)}:"
+                %td= @doctor.information
+    .text-center
+      %br/
+      %br/
+      = link_to 'К списку врачей', Doctor, class: 'btn btn-primary btn-sm'

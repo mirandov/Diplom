@@ -23,6 +23,10 @@ module ApplicationHelper
    link_to t('views.buttons.back'), path, class: 'btn btn-default', id: id, data: data
  end
 
+ def full_path
+    request.env['ORIGINAL_FULLPATH']
+ end
+ 
  # Генерирует кнопку "Далее"
  def next_btn_to(form, options = {class: 'btn btn-primary'})
    form.button :submit, t('views.buttons.next'), options
