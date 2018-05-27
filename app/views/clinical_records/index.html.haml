@@ -26,5 +26,5 @@
               %td.text-center= l(clinical_record.last_registration_date, format: :default)
               %td.text-center= clinical_record.detachment_date.present? ? l(clinical_record.detachment_date, format: :default) : 'Пациент не открепился'
               %td.text-center= clinical_record.reason_for_detachment.present? ? clinical_record.reason_for_detachment : 'Пациент не открепился'
-              %td.text-center= full_name(clinical_record)
+              %td.text-center= full_name(clinical_record.patient)
               %td.text-center= clinical_record.site.site_name
