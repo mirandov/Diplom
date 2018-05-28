@@ -9,6 +9,13 @@ ru:
       #   params[:type]:
       #     "true":  Прикрепленные
       #     "false": Открепленные
+      diagnosis:
+        first_in_live:
+          "true":  Да
+          "false": Нет
+        prof:
+          "true":  Да
+          "false": Нет
       patient:
         sex: &gender
           "true":  Муж.

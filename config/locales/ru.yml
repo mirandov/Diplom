@@ -169,7 +169,7 @@ ru:
         last_registration_date:  Дата последней регистрации
         detachment_date:         Дата открепления
         reason_for_detachment:   Причина открепления
-        site:                    Участок
+        site_id:                    Участок
       site:
         site_name:               Название участка
         short_name:              Сокращнное название
@@ -182,6 +182,8 @@ ru:
         personnel_number:                   Табельный номер
         information:                        Информация
       diagnosis:
+        first_in_live:           Впервые в жизни
+        prof:                    ПРОФ 
         doctor_id:               Врач
         patient_id:              Пациент
         resolution_date:         Дата постановления диагноза

@@ -43,7 +43,7 @@ class ParentPatientUseCase
                           patients.place_work_id = ?",
                           @place_work)
     @children = patients
-
+    
     under_1_year  = ages(@children,1,0)
     under_3_year  = ages(@children,3,1)
     under_6_year  = ages(@children,6,3)

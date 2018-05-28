@@ -9,5 +9,5 @@ module ClinicalRecordsHelper
 
   def linked_list(clinical_record)
     content_tag(:ul, link_to(full_name(clinical_record), patient_path(clinical_record.patient)))
-end
+  end
 end

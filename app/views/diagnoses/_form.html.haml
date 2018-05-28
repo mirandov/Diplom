@@ -12,6 +12,10 @@
 
   = f.association :complictation
 
+  = f.input :first_in_live, collection: [:true, :false]
+
+  = f.input :prof, collection: [:true, :false]
+
 
   .form-actions
     -if edit == true

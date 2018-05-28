@@ -1,0 +1,30 @@
+.container
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = link_to 'Дети по месту службы родителей', reports_path
+
+      = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-3 text-center', role: :form } do |f|
+        = f.input :site, label: false, collection: site_for_select, value: params[:site]
+        .inline
+          = submit_tag 'Поиск', class: 'btn btn-primary'
+      %br/
+      %br/
+      - if params[:site].present?
+        %h4.text-center=  "№ участка:""#{Site.where(id:params[:site])[0].site_name}"
+
+      %table.table
+        %thead
+          %tr
+            %th.text-center Ф.И.О
+            %th.text-center Дата рождения
+            %th.text-center Адрес регистрации
+        %tbody
+          -@children.each do |site, report|
+            %tr
+              %td.text-center= report[:name]
+              %td.text-center= l(report[:birthday], format: :default)
+              %td.text-center= report[:adress]
+          %tr
+            %th.text-right.th-popover{ colspan: 3 }=  "Всего пациентов: " "#{@children.size}"

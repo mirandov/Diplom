@@ -7,7 +7,7 @@ module DiagnosesHelper
     Patient.all.map {|p| ["#{p.surname} #{p.name} #{p.patronymic}", p.id]}
   end
 
-  def full_name(patient)
+  def full_name_patient(patient)
     result = patient.surname + " " + patient.name + " " + patient.patronymic
   end
 end

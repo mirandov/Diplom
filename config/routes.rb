@@ -5,6 +5,8 @@ Rails.application.routes.draw do
       get 'place_work_report'
       get 'movement_patients'
       get 'parent_patient'
+      get 'site'
+      get 'count_diseases'
     end
   end
   resources :description_diagnoses

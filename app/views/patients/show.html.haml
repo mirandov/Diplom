@@ -68,7 +68,7 @@
                 %td=  @patient.passport.serial_and_number
       %br/
       %br/
-      
+
       %h4.text-center Заболевания пациента
       %table.table.table-hover
         %thead
@@ -84,7 +84,7 @@
           - @patient.diagnoses.each do |d|
             %tr.tr-href{ data: { link: diagnosis_path(d.id) }, back_url: full_path }
               %td= d.class_disease.name
-              %td= d.complictation.name
+              %td= d.complictation.present? ? d.complictation.name : "qqq"
               %td= l(d.resolution_date, format: :default)
               %td= d.doctor.present? ? "qq" : "qq"
 
