@@ -9,17 +9,17 @@
     %meta{ name: "pdfkit-margin_right", content: "0.4in" }
     %meta{ name: "pdfkit-margin_bottom", content: "0.35in" }
     %meta{ name: "pdfkit-margin_left", content: "0.4in" }
-    %title 
-      = page_title
+    %title
+      = '111'
     = stylesheet_link_tag 'application', media: 'all'
     / Leave it for a test
-    / = stylesheet_link_tag 'print/report'
-    = (javascript_include_tag 'application').gsub('="', "=\"#{ root_url }").html_safe
+    -# = stylesheet_link_tag 'print/report'
+    -# = (javascript_include_tag 'application').gsub('="', "=\"#{ root_url }").html_safe
     = csrf_meta_tags
-  
+
   %body
     .container{ class: "#{controller_name}_class"}
       .center-block.w960#report-page.report-page
-        = render 'layouts/notices'
-        = render 'layouts/print_header'
+        -# = render 'layouts/notices'
+        -# = render 'layouts/print_header'
         = yield

@@ -43,6 +43,28 @@ class ReportsController < ApplicationController
     place_works = PlaceWork.all
     usecase     = PlaceWorkUseCase.new(place_works)
     @companies  = usecase.perform
+    create_reports(@companies)
   end
 
+  def create_reports(report)
+    @create_reports ||= Upload.new(upload_params)
+
+    usecase = CreateReportsUseCase.new(@create_reports, report)
+    usecase.perform(complect_tests_reports_pdf_file)
+  end
+
+  private
+
+  def complect_tests_reports_pdf_file
+    kit = PDFKit.new(render_to_string(template: 'reports/place_work_report', layout: 'print'))
+    kit.stylesheets << "/home/ldmirandov/Рабочий\ стол/diplom/Diplom/app/assets/stylesheets/print/report.css"
+    kit.to_file "2.pdf"
+
+  end
+  def upload_params
+    params.fetch(:upload, {}).permit( :date_create_report,  extras: [:error, :error_event, :error_event_text])
+  end
+  def set_report
+    @report = Report.find(params[:id])
+  end
 end

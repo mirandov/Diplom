@@ -22,7 +22,7 @@ gem 'bunny'
 gem 'therubyracer', :platforms => :ruby
 
 
-
+gem 'wkhtmltopdf-binary'
 # Validate datetime fields
 gem 'validates_timeliness', '~> 3.0'
 
