@@ -1,0 +1,15 @@
+.text-center
+  %br/
+  %br/
+  = link_to 'Просмотр отчетов', reports_path(), class: 'btn btn-primary', title: 'Просмотр отчетов'
+.main-menu-buttons
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: place_work_report_reports_path}}
+    = main_menu_button_for 'reports', 'Данные о возрасте пацеинтов'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: movement_patients_reports_path}}
+    = main_menu_button_for 'reports', 'Движение пациентов'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: parent_patient_reports_path}}
+    = main_menu_button_for 'reports', 'Количество детей по месту службы родителей'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: site_reports_path}}
+    = main_menu_button_for 'reports', 'Отчет об участках'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: count_diseases_reports_path}}
+    = main_menu_button_for 'reports', 'Сведения о числе заболеваний'

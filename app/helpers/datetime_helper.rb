@@ -39,8 +39,8 @@ module DatetimeHelper
     date_or_time.to_datetime.strftime('%Q')
   end
 
-  # def ftime(date)
-  #   date&.strftime("%d.%m.%y в %H:%M:%S")
-  # end
+  def ftime(date)
+    date&.strftime("%d.%m.%y в %H:%M:%S")
+  end
 
 end

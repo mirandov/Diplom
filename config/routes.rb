@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :reports, only: [:index] do
     collection do
+      get 'all_reports'
       get 'place_work_report'
       get 'movement_patients'
       get 'parent_patient'

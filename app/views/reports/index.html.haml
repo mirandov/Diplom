@@ -1,11 +1,20 @@
-.main-menu-buttons
-  .main-menu-button-wrapper{id: 'to-patients', data: {link: place_work_report_reports_path}}
-    = main_menu_button_for 'reports', 'Данные о возрасте пацеинтов'
-  .main-menu-button-wrapper{id: 'to-patients', data: {link: movement_patients_reports_path}}
-    = main_menu_button_for 'reports', 'Движение пациентов'
-  .main-menu-button-wrapper{id: 'to-patients', data: {link: parent_patient_reports_path}}
-    = main_menu_button_for 'reports', 'Количество детей по месту службы родителей'
-  .main-menu-button-wrapper{id: 'to-patients', data: {link: site_reports_path}}
-    = main_menu_button_for 'reports', 'Отчет об участках'
-  .main-menu-button-wrapper{id: 'to-patients', data: {link: count_diseases_reports_path}}
-    = main_menu_button_for 'reports', 'Сведения о числе заболеваний'
+%section
+  .col-md-12
+    .row
+      .header-field
+        .header-field-title
+          = 'Сформированные отчеты'
+          = link_to 'Создать новый отчет', all_reports_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Название отчета
+      %th Дата формирования
+
+
+  %tbody
+    - @reports.each do |report|
+      %tr.tr-href{ id: report.id, data: { link: (report.upload.attachment.url  if report.upload.present?), tab: 'true' } }
+        %td= report.name
+        %td= l(report.date_of_create, format: :default)

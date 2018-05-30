@@ -43,7 +43,6 @@ class ParentPatientUseCase
                           patients.place_work_id = ?",
                           @place_work)
     @children = patients
-    
     under_1_year  = ages(@children,1,0)
     under_3_year  = ages(@children,3,1)
     under_6_year  = ages(@children,6,3)
@@ -53,6 +52,7 @@ class ParentPatientUseCase
     older_18_year = ages(@children,99,18)
 
     @data[@children] = {
+      place_work: PlaceWork.where(id: @place_work)[0].job_name,
       girls_u1:   under_1_year.last,
       girls_u3:   under_3_year.last,
       girls_u6:   under_6_year.last,
