@@ -4,7 +4,7 @@
     .row
       .header-field
         .header-field-title
-          = link_to 'Возраста пациентов', reports_path
+          = link_to 'Движение пациентов', reports_path(type_report:2)
 
       = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-12 text-center', role: :form } do |f|
         = datepicker_field(f, :begin_date, label: false, icon: false, placeholder: 'c', value: params[:begin_date])

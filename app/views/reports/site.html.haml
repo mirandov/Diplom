@@ -3,7 +3,7 @@
     .row
       .header-field
         .header-field-title
-          = link_to 'Дети по месту службы родителей', reports_path
+          = link_to 'Дети по месту службы родителей', reports_path(type_report:4)
 
       = simple_form_for '', method: :get, html: { class: 'form-inline form-inline-search form-inline-3 text-center', role: :form } do |f|
         = f.input :site, label: false, collection: site_for_select, value: params[:site]

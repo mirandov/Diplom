@@ -1,9 +1,9 @@
 class CreateReportsUseCase
   include UseCase
-  attr_accessor :report, :complect_tests_report, :party, :person
-  def initialize(report, complect_tests_report)
+  attr_accessor :report, :data_report, :party, :person
+  def initialize(report, data_report)
       @report = report
-      @complect_tests_report = complect_tests_report
+      @data_report = data_report
 
     end
 
@@ -17,8 +17,8 @@ class CreateReportsUseCase
     private
 
     def attach_pdf(file)
-      report.assign_attributes(attachable: complect_tests_report,attachment: file)
-      complect_tests_report.upload = report
-      complect_tests_report.upload.save!
+      report.assign_attributes(attachable: data_report,attachment: file)
+      data_report.upload = report
+      data_report.upload.save!
     end
   end

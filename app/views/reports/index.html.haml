@@ -4,7 +4,16 @@
       .header-field
         .header-field-title
           = 'Сформированные отчеты'
-          = link_to 'Создать новый отчет', all_reports_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
+          - if params[:type_report] == '1'
+            = link_to 'Создать новый отчет', place_work_report_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
+          - elsif params[:type_report] == '2'
+            = link_to 'Создать новый отчет', movement_patients_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
+          - elsif params[:type_report] == '3'
+            = link_to 'Создать новый отчет', parent_patient_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
+          - elsif params[:type_report] == '4'
+            = link_to 'Создать новый отчет', site_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
+          - elsif params[:type_report] == '5'
+            = link_to 'Создать новый отчет', count_diseases_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
 
 %table.table.table-striped.table-hover
   %thead
@@ -14,7 +23,8 @@
 
 
   %tbody
+
     - @reports.each do |report|
       %tr.tr-href{ id: report.id, data: { link: (report.upload.attachment.url  if report.upload.present?), tab: 'true' } }
-        %td= report.name
+        %td= t "enums.report.report_type.#{report.report_type}"
         %td= l(report.date_of_create, format: :default)

@@ -6,6 +6,7 @@ class DiseasesUseCase
     @age_down = age_down
 
     @children = children
+    @q        = {}
     @data     = {}
     @begin_date = begin_date || "01.07.2016"
     @end_date   = end_date.presence
@@ -47,7 +48,7 @@ class DiseasesUseCase
 
 
     for i in 1..size
-      
+
       if first_in_live[i] == nil
         first_in_live[i] = 0
       end
@@ -82,8 +83,11 @@ class DiseasesUseCase
          count_prof_m: prof_male[i]
        }
     end
-    @data
-
+    @q["period"] = {
+      begin_date: @begin_date,
+      end_date:   @end_date
+    }
+    @data = @data.merge(@q)
   end
 
 end

@@ -4,7 +4,7 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all
+    @reports = Report.all.where(report_type: params[:type_report])
   end
 
   def create
@@ -30,7 +30,7 @@ class ReportsController < ApplicationController
       @report.report_data = @children
       @report.name        = "Chislo zabolevaniy"
       @report.report_type = 5
-      @report.save!
+      create
       create_reports
     end
   end
@@ -51,14 +51,19 @@ class ReportsController < ApplicationController
 
   def parent_patient
     children = params[:place_work].present? ? Patient.all : []
-    unless params[:place_work].nil?
+    if params[:place_work].present?
       usecase = ParentPatientUseCase.new(children, place_work: params[:place_work])
       @children = usecase.perform
+
+    else
+      @children = []
+    end
+    unless params[:place_work].nil?
       @report = Report.new
       @report.report_data = @children
       @report.name        = "Kolichestvo detei po mestu sluzby roditelei"
       @report.report_type = 3
-      @report.save!
+      create
       create_reports
     end
   end
@@ -78,7 +83,7 @@ class ReportsController < ApplicationController
       @report.report_data = @patients
       @report.name        = "Dvizhenie patientov"
       @report.report_type = 2
-      @report.save!
+      create
       create_reports
     end
   end
@@ -91,7 +96,7 @@ class ReportsController < ApplicationController
     @report.report_data = @companies
     @report.name        = "Vozrasta patientov"
     @report.report_type = 1
-    @report.save!
+    create
     create_reports
   end
 
@@ -107,7 +112,7 @@ class ReportsController < ApplicationController
   private
 
   def complect_tests_reports_pdf_file
-    kit = PDFKit.new(render_to_string(template: "reports/#{self.action_name}", layout: 'print'))
+    kit = PDFKit.new(render_to_string(template: "reports/#{self.action_name}", layout: "#{self.action_name}"))
     kit.stylesheets << "/home/ldmirandov/Рабочий\ стол/diplom/Diplom/app/assets/stylesheets/print/report.css"
     kit.to_file "#{@report.name}#{Time.now}.pdf"
   end

@@ -1,0 +1,53 @@
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta{ name: "print_media_type", content: "true"}
+    %meta{ name: "pdfkit-page_size", content: "Letter" }
+    %meta{ name: "pdfkit-margin_top", content: "0.35in" }
+    %meta{ name: "pdfkit-margin_right", content: "0.4in" }
+    %meta{ name: "pdfkit-margin_bottom", content: "0.35in" }
+    %meta{ name: "pdfkit-margin_left", content: "0.4in" }
+    %title
+      = 'Отчет'
+    = stylesheet_link_tag 'application', media: 'all'
+    / Leave it for a test
+    = stylesheet_link_tag 'print/report'
+    -# = (javascript_include_tag 'application').gsub('="', "=\"#{ root_url }").html_safe
+    = csrf_meta_tags
+
+  %body
+    .container
+      .col-md-12
+        .row
+          .header-field
+          %h3.text-center= "Данные о возрасте пациентов"
+          %br/
+          %table.table.table-striped
+            %thead
+              %tr
+                %th.text-center.bold.center.th-popover{ rowspan: 2 } Место службы
+                %th.text-center.th-popover{ colspan: 2 }Количество пациентов
+                %th.text-center.th-popover{ colspan: 2 }Пациенты младше 15 лет
+                %th.text-center.th-popover{ colspan: 2 }Пациенты старше 15 лет
+              %tr
+                %th.text-center.th-popover Мальчики
+                %th.text-center.th-popover Девочки
+                %th.text-center.th-popover Мальчики
+                %th.text-center.th-popover Девочки
+                %th.text-center.th-popover Мальчики
+                %th.text-center.th-popover Девочки
+            %tbody
+              - @companies.each do |company, report|
+                %tr
+                  %td.text-center= company.job_name
+                  %td.text-center= report[:under_male] + report[:older_male]
+                  %td.text-center= report[:under_female] + report[:older_female]
+                  %td.text-center= report[:under_male]
+                  %td.text-center= report[:under_female]
+                  %td.text-center= report[:older_male]
+                  %td.text-center= report[:older_female]
+              %tr
+                %th.text-right.th-popover{ colspan: 6 }  Всего пациентов:
+                %th.text-center= patients(@companies)

@@ -1,0 +1,71 @@
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta{ name: "print_media_type", content: "true"}
+    %meta{ name: "pdfkit-page_size", content: "Letter" }
+    %meta{ name: "pdfkit-margin_top", content: "0.35in" }
+    %meta{ name: "pdfkit-margin_right", content: "0.4in" }
+    %meta{ name: "pdfkit-margin_bottom", content: "0.35in" }
+    %meta{ name: "pdfkit-margin_left", content: "0.4in" }
+    %title
+      = 'Отчет'
+    = stylesheet_link_tag 'application', media: 'all'
+    / Leave it for a test
+    = stylesheet_link_tag 'print/report'
+    -# = (javascript_include_tag 'application').gsub('="', "=\"#{ root_url }").html_safe
+    = csrf_meta_tags
+
+  %body
+    - number = 1
+    .container
+      .col-md-12
+
+    %p= "Отчет о количестве детей по месту службы родителей по возрасту: #{@report.report_data.values.first["place_work"]}"
+
+    %br/
+    %br/
+    .col-md-12
+      %table.table.table-striped
+        %thead
+          %tr
+            %th.text-center.bold.center.th-popover{ colspan: 2 } Младше 1-го года
+            %th.text-center.th-popover{ colspan: 2 } от 1-го до 3-х лет
+            %th.text-center.th-popover{ colspan: 2 } от 3-х до 6-и лет
+            %th.text-center.th-popover{ colspan: 2 } от 6-ти до 15-ти лет
+            %th.text-center.th-popover{ colspan: 2 } от 15-ти до 17-ти лет
+            %th.text-center.th-popover{ colspan: 2 } от 17-ти до 18-ти лет
+            %th.text-center.th-popover{ colspan: 2 } старше 18-ти лет
+          %tr
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+            %th.text-center.th-popover Мальчики
+            %th.text-center.th-popover Девочки
+        %tbody
+          -@children.each do |company, report|
+            %tr
+              %td.text-center= report[:boys_u1]
+              %td.text-center= report[:girls_u1]
+              %td.text-center= report[:boys_u3]
+              %td.text-center= report[:girls_u3]
+              %td.text-center= report[:boys_u6]
+              %td.text-center= report[:girls_u6]
+              %td.text-center= report[:boys_u15]
+              %td.text-center= report[:girls_u15]
+              %td.text-center= report[:boys_u17]
+              %td.text-center= report[:girls_u17]
+              %td.text-center= report[:boys_u18]
+              %td.text-center= report[:girls_u18]
+              %td.text-center= report[:boys_o18]
+              %td.text-center= report[:girls_o18]

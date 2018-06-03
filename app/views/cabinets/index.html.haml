@@ -9,4 +9,13 @@
 
   = render 'cabinets/buttons/sites', name: "Участки"
 
-  = render 'cabinets/buttons/reports', name: "Отчеты"
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: reports_path(type_report:1)}}
+    = main_menu_button_for 'reports', 'Данные о возрасте пацеинтов'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: reports_path(type_report:2)}}
+    = main_menu_button_for 'reports', 'Движение пациентов'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: reports_path(type_report:3)}}
+    = main_menu_button_for 'reports', 'Количество детей по месту службы родителей'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: reports_path(type_report:4)}}
+    = main_menu_button_for 'reports', 'Отчет об участках'
+  .main-menu-button-wrapper{id: 'to-patients', data: {link: reports_path(type_report:5)}}
+    = main_menu_button_for 'reports', 'Сведения о числе заболеваний'

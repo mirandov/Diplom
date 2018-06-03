@@ -1,0 +1,72 @@
+!!!
+%html
+  %head
+    %meta(charset="utf-8")
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta{ name: "print_media_type", content: "true"}
+    %meta{ name: "pdfkit-page_size", content: "Letter" }
+    %meta{ name: "pdfkit-margin_top", content: "0.35in" }
+    %meta{ name: "pdfkit-margin_right", content: "0.4in" }
+    %meta{ name: "pdfkit-margin_bottom", content: "0.35in" }
+    %meta{ name: "pdfkit-margin_left", content: "0.4in" }
+    %title
+      = 'Отчет'
+    = stylesheet_link_tag 'application', media: 'all'
+    / Leave it for a test
+    = stylesheet_link_tag 'print/report'
+    -# = (javascript_include_tag 'application').gsub('="', "=\"#{ root_url }").html_safe
+    = csrf_meta_tags
+
+  %body
+    - number = 1
+    .container
+      .col-md-12
+        .row
+          .header-field
+
+          %h3.text-center= 'Движение пациентов'
+          %br/
+          %br/
+          %table.table.table-striped
+            %thead
+              %tr
+                %th.text-center № П/П
+                %th.text-center= Patient.human_attribute_name(:clinical_record_id)
+                %th.text-center= Patient.human_attribute_name(:site_id)
+                %th.text-center= Patient.human_attribute_name(:full_name)
+                %th.text-center= Patient.human_attribute_name(:birthday)
+                - if params[:type] == 'true'
+                  %th.text-center= ClinicalRecord.human_attribute_name(:attachment_date)
+                -else
+                  %th.text-center= ClinicalRecord.human_attribute_name(:detachment_date)
+                %th.text-center= Patient.human_attribute_name(:place_work_id)
+
+
+            %tbody
+              - @patients.each do |patient, report|
+                %tr
+                  %td.text-center= report[:id]
+                  %td.text-center= report[:clinical_record]
+                  %td.text-center= report[:site]
+                  %td.text-center= report[:full_name]
+                  %td.text-center= l(report[:birthday], format: :default)
+                  - if params[:type] == 'true'
+                    %td.text-center= l(report[:attachment_date], format: :default)
+                  - else
+                    %td.text-center= l(report[:detachment_date], format: :default)
+                  %td.text-center= report[:place_work]
+              - @patients.each do |patient, report|
+                - if number == 1
+                  %tr
+                    %th.text-right.th-popover{ colspan: 6 }  Пациентов на начало периода:
+                    %th.text-center= report[:start_period]
+                  %tr
+                    %th.text-right.th-popover{ colspan: 6 }  Прикрепленные пациенты за период:
+                    %th.text-center= report[:attach_to_period]
+                  %tr
+                    %th.text-right.th-popover{ colspan: 6 }  Открепленные пациенты за период:
+                    %th.text-center= report[:detach_to_period]
+                  %tr
+                    %th.text-right.th-popover{ colspan: 6 }  Пациентов на конец периода:
+                    %th.text-center= report[:end_period]
+                  - number += 1

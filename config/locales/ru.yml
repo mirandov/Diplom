@@ -1,4 +1,12 @@
 ru:
+  enums:
+    report:
+      report_type:
+        place_work_report:   Возраст пациентов
+        movement_patients:   Движение пациентов
+        parent_patient:      Количество пациентов по местам служб
+        site:                Количество пациентов по участкам
+        count_diseases:      Отчёт о числе заболеваний
   controllers:
     doctors:
       new:  Регистраци нового врача
@@ -183,7 +191,7 @@ ru:
         information:                        Информация
       diagnosis:
         first_in_live:           Впервые в жизни
-        prof:                    ПРОФ 
+        prof:                    ПРОФ
         doctor_id:               Врач
         patient_id:              Пациент
         resolution_date:         Дата постановления диагноза
