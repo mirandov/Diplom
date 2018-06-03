@@ -5,6 +5,17 @@
         .header-field-title
           = 'Пациенты'
           = link_to '+', new_patient_path, class: 'btn btn-primary btn-sm', title: 'Добавить нового пациента'
+      = search_form_for @search, html: { class: 'form-inline form-inline-search form-inline-5 text-center', role: 'form' } do |f|
+        = f.text_field :name_eq, class: 'form-control', placeholder: 'Имя'
+        = f.text_field :surname_eq, class: 'form-control', placeholder: 'Фамилия'
+        = f.text_field :clinical_record_record_number_eq, class: 'form-control', placeholder: 'Номер карты'
+
+        .inline
+          = f.button 'Поиск', class: 'btn btn-primary'
+          -# = link_to 'Сбросить', patient_path, class: 'btn btn-default'
+
+      %br/
+      %h5.text-center= "Найдено пользователей: #{@search.result.size}"
 
       %table.table.table-hover
         %thead

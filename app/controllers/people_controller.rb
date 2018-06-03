@@ -5,7 +5,7 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = @search.result.page(params[:page])
   end
 
   # GET /people/1
@@ -71,5 +71,14 @@ class PeopleController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def person_params
       params.require(:person).permit(:ln)
+    end
+
+    def set_search_params
+      search_query = params[:q]&.clone
+      @search = Person.all.order('id ASC')
+
+
+
+      @search = @search.ransack(search_query)
     end
 end

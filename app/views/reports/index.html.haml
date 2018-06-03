@@ -4,6 +4,8 @@
       .header-field
         .header-field-title
           = 'Сформированные отчеты'
+          %br/
+          %br/
           - if params[:type_report] == '1'
             = link_to 'Создать новый отчет', place_work_report_reports_path, class: 'btn btn-primary btn-sm', title: 'Новые отчеты'
           - elsif params[:type_report] == '2'

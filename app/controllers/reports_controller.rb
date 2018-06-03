@@ -1,10 +1,14 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_search_params, only: [:index]
+
 
   # GET /reports
   # GET /reports.json
   def index
-    @reports = Report.all.where(report_type: params[:type_report])
+    # @reports = Report.all.where(report_type: params[:type_report])
+    @search = Report.search(params[:q])
+    @reports = @search.result.page(params[:page])
   end
 
   def create
@@ -13,6 +17,7 @@ class ReportsController < ApplicationController
   end
 
   def all_reports
+
   end
 
   def count_diseases
@@ -110,6 +115,11 @@ class ReportsController < ApplicationController
 
 
   private
+  def set_search_params
+    search_query = params[:q]&.clone
+    @search = Patient.all.order('id ASC')
+    @search = @search.ransack(search_query)
+  end
 
   def reports_pdf_file
     kit = PDFKit.new(render_to_string(template: "reports/#{self.action_name}", layout: "#{self.action_name}"))

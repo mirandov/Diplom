@@ -4,7 +4,7 @@ module ClinicalRecordsHelper
   end
 
   def full_name(clinical_record)
-    clinical_record.patient.present?  ?  "#{clinical_record.patient.surname} #{clinical_record.patient.name} #{clinical_record.patient.patronymic}" : "Данные отсутствуют"
+    clinical_record.present?  ?  "#{clinical_record.surname} #{clinical_record.name} #{clinical_record.patronymic}" : "Данные отсутствуют"
   end
 
   def linked_list(clinical_record)

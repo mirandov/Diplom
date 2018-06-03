@@ -1,10 +1,13 @@
 class PatientsController < ApplicationController
   before_action :set_patient, only: [:show, :edit, :update, :destroy]
+  before_action :set_search_params, only: [:index]
 
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+
+    @search = Patient.includes(:clinical_record).search(params[:q])
+    @patients = @search.result.page(params[:page])
   end
 
   # GET /patients/1
@@ -119,5 +122,10 @@ class PatientsController < ApplicationController
           :site_id
         ]
       )
+    end
+    def set_search_params
+      search_query = params[:q]&.clone
+      @search = Patient.all.order('id ASC')
+      @search = @search.ransack(search_query)
     end
 end

@@ -30,4 +30,8 @@ module ReportsHelper
   def site_for_select
     result = Site.all.map {|s| [s.site_name, s.id]}
   end
+
+  def report_for_select
+    Report.all.map{|r| [r.report_type, r.id]}
+  end
 end
