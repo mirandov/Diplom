@@ -105,13 +105,13 @@ class ReportsController < ApplicationController
   def create_reports
     @create_reports ||= Upload.new(upload_params)
     usecase = CreateReportsUseCase.new(@create_reports, @report)
-    usecase.perform(complect_tests_reports_pdf_file)
+    usecase.perform(reports_pdf_file)
   end
 
 
   private
 
-  def complect_tests_reports_pdf_file
+  def reports_pdf_file
     kit = PDFKit.new(render_to_string(template: "reports/#{self.action_name}", layout: "#{self.action_name}"))
     kit.stylesheets << "/home/ldmirandov/Рабочий\ стол/diplom/Diplom/app/assets/stylesheets/print/report.css"
     kit.to_file "#{@report.name}#{Time.now}.pdf"
